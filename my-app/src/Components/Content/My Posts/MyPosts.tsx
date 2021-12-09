@@ -12,7 +12,8 @@ export function MyPosts() {
                     <textarea></textarea>
                     <button>Add post</button>
                     <button>Remove post</button>
-                    <Post/>
+                    <Post message='Hi, how are u?'/>
+                    <Post message='Crazy people around me...'/>
                 </div>
             </div>
 
