@@ -1,22 +1,19 @@
 import './App.css';
+import {Header} from "./Components/Header";
+import {Navbar} from "./Components/Navbar";
+import {Footer} from "./Components/Footer";
+import {Content} from "./Components/Content";
 
 function App() {
-  return (
-    <div>
-      <List />
-      <div className='App'>Roma</div>
-    </div>
-  );
+    return (
+        <div  className='app-wrapper'>
+            <Header/>
+            <Navbar />
+            <Content />
+            <Footer />
+        </div>
+    );
 }
 
-let List = () => {
-  return (
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-    </ul>
-  )
-}
 
 export default App;

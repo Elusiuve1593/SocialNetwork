@@ -1,0 +1,16 @@
+import React from "react";
+import '../App.css'
+
+export function Navbar() {
+    return (
+        <div className='navbar'>
+            <nav>
+                <div><a>Profile</a></div>
+                <div><a>Messages</a></div>
+                <div><a>News</a></div>
+                <div><a>Music</a></div>
+                <div><a>Settings</a></div>
+            </nav>
+        </div>
+    )
+}
