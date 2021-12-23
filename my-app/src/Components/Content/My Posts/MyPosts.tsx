@@ -1,12 +1,11 @@
 import React from "react";
 import classes from './MyPost.module.css';
 import {Post} from "./Post/Post";
-import {messagesDataType} from "../../../index";
+import {contentPageType, messagesDataType} from "../../Redax/redax";
 
 type myPostsType = {
     messages: messagesDataType[]
 }
-
 export function MyPosts(props: myPostsType) {
     let posts = props.messages.map((i) => <Post message={i.message} likesCount={i.likesCount}/>)
     return (

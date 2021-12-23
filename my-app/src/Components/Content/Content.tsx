@@ -1,17 +1,17 @@
 import React from "react";
 import {MyPosts} from "./My Posts/MyPosts";
 import {ProfileInfo} from "./Profile Info/ProfileInfo";
-import {messagesDataType} from "../../index";
+import {contentPageType} from "../Redax/redax";
 
-type contentPropsType = {
-    messages: messagesDataType[]
+type contentType = {
+    content:contentPageType
 }
 
-export function Content(props: contentPropsType) {
+export function Content(props: contentType) {
     return (
         <div>
-            <ProfileInfo/>
-            <MyPosts messages={props.messages}/>
+            <ProfileInfo />
+            <MyPosts messages={props.content.messagesData}/>c
         </div>
     )
 }

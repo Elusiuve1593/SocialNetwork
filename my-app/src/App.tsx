@@ -10,15 +10,13 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
 import {Settings} from "./Components/Settings/Settings";
-import {dialogsDataType, messageDataType, messagesDataType} from './index'
+import {stateRootType} from "./Components/Redax/redax";
 
-type dialogsDataTypeApp = {
-    dialogsData: dialogsDataType[]
-    messageData: messageDataType[]
-    messages: messagesDataType[]
+type AppPropsType ={
+    state: stateRootType
 }
 
-function App(props: dialogsDataTypeApp) {
+function App(props: AppPropsType) {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -26,9 +24,9 @@ function App(props: dialogsDataTypeApp) {
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
                     <Routes>
-                        <Route path='/content/*' element={<Content messages={props.messages}/>}/>
+                        <Route path='/content/*' element={<Content content={props.state.contentPage}/>}/>
                         <Route path='/dialogs/*'
-                               element={<Dialogs dialogsData={props.dialogsData} messageData={props.messageData}/>}/>
+                               element={<Dialogs dialogs={props.state.dialogsPage.dialogsData} message={props.state.dialogsPage.messageData}/>}/>
                         <Route path='/news/*' element={<News/>}/>
                         <Route path='/music/*' element={<Music/>}/>
                         <Route path='/settings/*' element={<Settings/>}/>
