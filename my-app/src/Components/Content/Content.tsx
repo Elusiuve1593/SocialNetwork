@@ -1,19 +1,17 @@
 import React from "react";
-import classes from './Content.module.css';
 import {MyPosts} from "./My Posts/MyPosts";
+import {ProfileInfo} from "./Profile Info/ProfileInfo";
+import {messagesDataType} from "../../index";
 
+type contentPropsType = {
+    messages: messagesDataType[]
+}
 
-export function Content() {
+export function Content(props: contentPropsType) {
     return (
-        <div className={classes.content}>
-            <div>
-                <img
-                    src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg'/>
-            </div>
-            <div>
-                Ava+Dscr
-            </div>
-            <MyPosts/>
+        <div>
+            <ProfileInfo/>
+            <MyPosts messages={props.messages}/>
         </div>
     )
 }

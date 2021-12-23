@@ -3,6 +3,7 @@
     background-color: blue;
 }
 
-.item {
+.item a{
     color: white;
+    text-decoration: none;
 }

@@ -1,9 +1,14 @@
 import React from "react";
 import classes from './MyPost.module.css';
 import {Post} from "./Post/Post";
+import {messagesDataType} from "../../../index";
 
+type myPostsType = {
+    messages: messagesDataType[]
+}
 
-export function MyPosts() {
+export function MyPosts(props: myPostsType) {
+    let posts = props.messages.map((i) => <Post message={i.message} likesCount={i.likesCount}/>)
     return (
         <div className={classes.content}>
             <div>
@@ -12,8 +17,7 @@ export function MyPosts() {
                     <textarea></textarea>
                     <button>Add post</button>
                     <button>Remove post</button>
-                    <Post message='Hi, how are u?' likesCount={1}/>
-                    <Post message='Crazy people around me...' likesCount={34}/>
+                    {posts}
                 </div>
             </div>
 
