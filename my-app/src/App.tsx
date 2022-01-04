@@ -10,10 +10,11 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
 import {Settings} from "./Components/Settings/Settings";
-import {stateRootType} from "./Components/Redax/redax";
+import {messagesDataType, stateRootType} from "./Components/Redax/redax";
 
 type AppPropsType ={
     state: stateRootType
+    addPost: (postMessage: string) => void
 }
 
 function App(props: AppPropsType) {
@@ -24,7 +25,10 @@ function App(props: AppPropsType) {
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
                     <Routes>
-                        <Route path='/content/*' element={<Content content={props.state.contentPage}/>}/>
+                        <Route path='/content/*' element={<Content
+                            content={props.state.contentPage}
+                            addPost={props.addPost}
+                        />}/>
                         <Route path='/dialogs/*'
                                element={<Dialogs dialogs={props.state.dialogsPage.dialogsData} message={props.state.dialogsPage.messageData}/>}/>
                         <Route path='/news/*' element={<News/>}/>
