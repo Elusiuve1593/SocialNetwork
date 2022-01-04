@@ -1,4 +1,5 @@
 import {v1} from "uuid";
+import {reRenderEntireTree} from "../../index";
 
 export type dialogsDataType = {
     id: string
@@ -54,4 +55,14 @@ export let state: stateRootType = {
             },
         ]
     }
+}
+
+export function addPost(postMessage: string){
+    let newPost = {
+        id: v1(),
+        message: postMessage,
+        likesCount: 0
+    }
+    state.contentPage.messagesData.push(newPost)
+    reRenderEntireTree(state)
 }
