@@ -1,11 +1,14 @@
 import React from "react";
 import classes from './MyPost.module.css';
 import {Post} from "./Post/Post";
-import {contentPageType, messagesDataType} from "../../Redax/redax";
+import {contentPageType, messagesDataType, stateRootType} from "../../Redax/redax";
 
 type myPostsType = {
+    state?: stateRootType
+    newMessages: string
     messages: messagesDataType[]
     addPost: (postMessage: string) => void
+    newPostMessage: (newText: string) => void
 }
 
 export function MyPosts(props: myPostsType) {
@@ -20,12 +23,20 @@ export function MyPosts(props: myPostsType) {
         }
     }
 
+    function newText() {
+        if (newPostElement.current) {
+            let text = newPostElement.current?.value
+            props.newPostMessage(text)
+        }
+    }
+
     return (
         <div className={classes.content}>
             <div>
                 MyPosts
                 <div>
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea ref={newPostElement} value={props.state?.contentPage.newPostMessageState}
+                              onChange={newText}/>
                     <button onClick={addPosts}>Add post</button>
                     <button>Remove post</button>
                     {posts}
