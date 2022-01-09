@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {state, stateRootType, messagesDataType} from './Components/Redax/redax';
+import {state, stateRootType, messagesDataType, newPostMessage} from './Components/Redax/redax';
 import {addPost} from './Components/Redax/redax';
 
 export function reRenderEntireTree(state: stateRootType) {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} addPost={addPost}/>
+            <App state={state} addPost={addPost} newPostMessage={newPostMessage}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
