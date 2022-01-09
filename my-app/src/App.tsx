@@ -10,11 +10,12 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
 import {Settings} from "./Components/Settings/Settings";
-import {messagesDataType, stateRootType} from "./Components/Redax/redax";
+import {messagesDataType, newPostMessage, stateRootType} from "./Components/Redax/redax";
 
 type AppPropsType ={
     state: stateRootType
     addPost: (postMessage: string) => void
+    newPostMessage: (newText: string) => void
 }
 
 function App(props: AppPropsType) {
@@ -28,6 +29,7 @@ function App(props: AppPropsType) {
                         <Route path='/content/*' element={<Content
                             content={props.state.contentPage}
                             addPost={props.addPost}
+                            newPostMessage={props.newPostMessage}
                         />}/>
                         <Route path='/dialogs/*'
                                element={<Dialogs dialogs={props.state.dialogsPage.dialogsData} message={props.state.dialogsPage.messageData}/>}/>
