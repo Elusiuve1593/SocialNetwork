@@ -20,6 +20,7 @@ export type dialogsPageType = {
 }
 export type contentPageType = {
     messagesData: messagesDataType[]
+    newPostMessageState: string
 }
 export type stateRootType = {
     dialogsPage: dialogsPageType
@@ -42,6 +43,7 @@ export let state: stateRootType = {
         ],
     },
     contentPage: {
+        newPostMessageState: '',
         messagesData: [
             {
                 id: v1(),
@@ -57,7 +59,7 @@ export let state: stateRootType = {
     }
 }
 
-export function addPost(postMessage: string){
+export function addPost(postMessage: string) {
     let newPost = {
         id: v1(),
         message: postMessage,
@@ -66,3 +68,10 @@ export function addPost(postMessage: string){
     state.contentPage.messagesData.push(newPost)
     reRenderEntireTree(state)
 }
+
+export function newPostMessage(newText:string) {
+    state.contentPage.newPostMessageState = newText
+
+    reRenderEntireTree(state)
+}
+
