@@ -1,13 +1,12 @@
 import React from "react";
 import {MyPosts} from "./My Posts/MyPosts";
 import {ProfileInfo} from "./Profile Info/ProfileInfo";
-import {contentPageType, messagesDataType, stateRootType} from "../Redax/redax";
+import {addNewPostTypeMessage, addPostType, contentPageType, stateRootType} from "../Redax/redax";
 
 type contentType = {
     content:contentPageType
     state?: stateRootType
-    addPost: (postMessage: string) => void
-    newPostMessage: (newText: string) => void
+    dispatch: (action: addPostType | addNewPostTypeMessage) => void
 }
 
 export function Content(props: contentType) {
@@ -17,8 +16,7 @@ export function Content(props: contentType) {
             <MyPosts
                 messages={props.content.messagesData}
                 newMessages={props.content.newPostMessageState}
-                addPost={props.addPost}
-                newPostMessage = {props.newPostMessage}
+                dispatch={props.dispatch}
             />
 
         </div>
