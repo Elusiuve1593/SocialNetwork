@@ -1,32 +1,35 @@
 import React from "react";
 import classes from './MyPost.module.css';
 import {Post} from "./Post/Post";
-import {contentPageType, messagesDataType, stateRootType} from "../../Redax/redax";
+import {
+    addMessageActionCreator,
+    addNewPostTypeMessage,
+    addPostActionCreator,
+    addPostType,
+    messagesDataType,
+    stateRootType
+} from "../../Redax/redax";
 
 type myPostsType = {
     state?: stateRootType
     newMessages: string
     messages: messagesDataType[]
-    addPost: (postMessage: string) => void
-    newPostMessage: (newText: string) => void
+    dispatch: (action: addPostType | addNewPostTypeMessage) => void
 }
 
 export function MyPosts(props: myPostsType) {
     let posts = props.messages.map((i) => <Post key={i.id} message={i.message} likesCount={i.likesCount}/>)
 
-    let newPostElement = React.createRef<HTMLTextAreaElement>()
+    const newPostElement = React.createRef<HTMLTextAreaElement>()
 
     function addPosts() {
-        if (newPostElement.current) {
-            let text = newPostElement.current?.value
-            props.addPost(text)
-        }
+        props.dispatch(addPostActionCreator())
     }
 
     function newText() {
         if (newPostElement.current) {
             let text = newPostElement.current?.value
-            props.newPostMessage(text)
+            props.dispatch(addMessageActionCreator(text))
         }
     }
 
