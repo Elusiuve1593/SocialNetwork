@@ -10,11 +10,13 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
 import {Settings} from "./Components/Settings/Settings";
-import {addNewPostTypeMessage, addPostType, messagesDataType, stateRootType} from "./Components/Redax/redax";
+import {addNewPostTypeMessage, addPostType, messagesDataType, stateRootType, storeType} from "./Components/Redax/redax";
+import {DialogsContainer} from "./Components/Dialogs/DialogsContainer";
 
 type AppPropsType = {
     state: stateRootType
     dispatch: (action: addPostType | addNewPostTypeMessage) => void
+    store: storeType
 }
 
 function App(props: AppPropsType) {
@@ -25,14 +27,9 @@ function App(props: AppPropsType) {
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
                     <Routes>
-                        <Route path='/content/*' element={<Content
-                            content={props.state.contentPage}
-                            dispatch={props.dispatch}
-                        />}/>
+                        <Route path='/content/*' element={<Content store={props.store}/>}/>
                         <Route path='/dialogs/*'
-                               element={<Dialogs dialogs={props.state.dialogsPage.dialogsData}
-                                                 message={props.state.dialogsPage.messageData}
-                                                 dispatch={props.dispatch}/>}/>
+                               element={<DialogsContainer store={props.store}/>}/>
                         <Route path='/news/*' element={<News/>}/>
                         <Route path='/music/*' element={<Music/>}/>
                         <Route path='/settings/*' element={<Settings/>}/>
