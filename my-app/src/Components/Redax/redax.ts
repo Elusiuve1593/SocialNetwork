@@ -29,7 +29,7 @@ export type stateRootType = {
 }
 export type storeType = {
     _state: stateRootType
-    getState: () => stateRootType
+    getState: (state: any) => stateRootType
     dispatch: (action: addPostType | addNewPostTypeMessage) => void
 }
 
@@ -80,6 +80,7 @@ export const store: storeType = {
                 likesCount: 0
             }
             this._state.contentPage.messagesData.push(newPost)
+            this._state.contentPage.newPostMessageState = ''
             reRenderEntireTree(this._state)
         }
         if (action.type === 'NEW_POST_MESSAGE') {
@@ -89,13 +90,15 @@ export const store: storeType = {
         if (action.type === 'ADD_MESSAGE') {
             const newMessage = {
                 id: v1(),
-                message: this._state.dialogsPage.newMessageState
+                message: this._state.dialogsPage.newMessageState,
             }
             this._state.dialogsPage.messageData.push(newMessage)
+            this._state.dialogsPage.newMessageState = ''
             reRenderEntireTree(this._state)
         }
         if (action.type === 'NEW_DIALOGS_MESSAGE') {
             this._state.dialogsPage.newMessageState = action.newText
+            reRenderEntireTree(this._state)
         }
     },
 }
