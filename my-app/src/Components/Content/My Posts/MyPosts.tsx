@@ -5,31 +5,33 @@ import {
     addMessageActionCreator,
     addNewPostTypeMessage,
     addPostActionCreator,
-    addPostType,
+    addPostType, contentPageType, dialogsPageType,
     messagesDataType,
     stateRootType
 } from "../../Redax/redax";
 
 type myPostsType = {
-    state?: stateRootType
+    //state?: stateRootType
     newMessages: string
     messages: messagesDataType[]
+    addPosts: () => void
+    newText: (text: string) => void
     dispatch: (action: addPostType | addNewPostTypeMessage) => void
 }
 
 export function MyPosts(props: myPostsType) {
-    let posts = props.messages.map((i) => <Post key={i.id} message={i.message} likesCount={i.likesCount}/>)
-
-    const newPostElement = React.createRef<HTMLTextAreaElement>()
+    const posts = props.messages.map((i) => <Post key={i.id} message={i.message} likesCount={i.likesCount}/>)
 
     function addPosts() {
-        props.dispatch(addPostActionCreator())
+        props.addPosts()
     }
+
+    const newPostElement = React.createRef<HTMLTextAreaElement>()
 
     function newText() {
         if (newPostElement.current) {
             let text = newPostElement.current?.value
-            props.dispatch(addMessageActionCreator(text))
+            props.newText(text)
         }
     }
 
@@ -38,7 +40,7 @@ export function MyPosts(props: myPostsType) {
             <div>
                 MyPosts
                 <div>
-                    <textarea ref={newPostElement} value={props.state?.contentPage.newPostMessageState}
+                    <textarea ref={newPostElement} value={props.newMessages}
                               onChange={newText}/>
                     <button onClick={addPosts}>Add post</button>
                     <button>Remove post</button>
