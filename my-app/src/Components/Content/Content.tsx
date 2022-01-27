@@ -1,24 +1,22 @@
 import React from "react";
 import {MyPosts} from "./My Posts/MyPosts";
 import {ProfileInfo} from "./Profile Info/ProfileInfo";
-import {addNewPostTypeMessage, addPostType, contentPageType, stateRootType} from "../Redax/redax";
+import {addNewPostTypeMessage, addPostType, contentPageType, stateRootType, store, storeType} from "../Redax/redax";
+import {MyPostsContainer} from "./My Posts/MyPostsContainer";
 
 type contentType = {
-    content:contentPageType
-    state?: stateRootType
-    dispatch: (action: addPostType | addNewPostTypeMessage) => void
+    store: storeType
+    //content: contentPageType
+    //state?: stateRootType
+    // dispatch: (action: addPostType | addNewPostTypeMessage) => void
 }
 
 export function Content(props: contentType) {
     return (
         <div>
-            <ProfileInfo />
-            <MyPosts
-                messages={props.content.messagesData}
-                newMessages={props.content.newPostMessageState}
-                dispatch={props.dispatch}
+            <ProfileInfo/>
+            <MyPostsContainer store={props.store}
             />
-
         </div>
     )
 }
