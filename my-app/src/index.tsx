@@ -8,13 +8,13 @@ import {stateRootType, messagesDataType, store} from './Components/Redax/redax';
 export function reRenderEntireTree(state: stateRootType) {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)}/>
+            <App state={state} store={store} dispatch={store.dispatch.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
 
-reRenderEntireTree(store.getState())
+reRenderEntireTree(store.getState(store))
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
