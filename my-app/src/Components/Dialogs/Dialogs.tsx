@@ -11,15 +11,17 @@ import {
     addPostType,
     dialogsDataType,
     dialogsPageType,
-    messageDataType, stateRootType
+    messageDataType, stateRootType, storeType
 } from "../Redax/redax";
 
 type dialogDataType = {
-    state?: stateRootType
-    dialogs: dialogsDataType[]
+    //state?: stateRootType
+    newText: (text: string) => void
     message: messageDataType[]
     dispatch: (action: addPostType | addNewPostTypeMessage) => void
-
+    addPost: () => void
+    dialogs: dialogsDataType[]
+    newMessageState: string
 }
 
 export function Dialogs(props: dialogDataType) {
@@ -27,7 +29,7 @@ export function Dialogs(props: dialogDataType) {
     let messagesElements = props.message.map((i) => <Message message={i.message}/>)
 
     function addPost() {
-        props.dispatch(addDialogActionCreator())
+        props.addPost()
     }
 
     const newPostElement = React.createRef<HTMLTextAreaElement>()
@@ -35,7 +37,7 @@ export function Dialogs(props: dialogDataType) {
     function newText() {
         if (newPostElement.current) {
             let text = newPostElement.current?.value
-            props.dispatch(addDialogsActionCreator(text))
+            props.newText(text)
         }
     }
 
@@ -48,7 +50,7 @@ export function Dialogs(props: dialogDataType) {
             </div>
             <div className={classes.messages}>
                 {messagesElements}
-                <textarea ref={newPostElement} value={props.state?.contentPage.newPostMessageState}
+                <textarea ref={newPostElement} value={props.newMessageState}
                           onChange={newText}/>
                 <button onClick={addPost}>Press</button>
             </div>
