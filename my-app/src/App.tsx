@@ -10,16 +10,9 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
 import {Settings} from "./Components/Settings/Settings";
-import {addNewPostTypeMessage, addPostType, messagesDataType, stateRootType, storeType} from "./Components/Redax/redax";
 import {DialogsContainer} from "./Components/Dialogs/DialogsContainer";
 
-type AppPropsType = {
-    state: stateRootType
-    dispatch: (action: addPostType | addNewPostTypeMessage) => void
-    store: storeType
-}
-
-function App(props: AppPropsType) {
+function App(props: any) {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -27,9 +20,9 @@ function App(props: AppPropsType) {
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
                     <Routes>
-                        <Route path='/content/*' element={<Content store={props.store}/>}/>
+                        <Route path='/content/*' element={<Content/>}/>
                         <Route path='/dialogs/*'
-                               element={<DialogsContainer store={props.store}/>}/>
+                               element={<DialogsContainer/>}/>
                         <Route path='/news/*' element={<News/>}/>
                         <Route path='/music/*' element={<Music/>}/>
                         <Route path='/settings/*' element={<Settings/>}/>
