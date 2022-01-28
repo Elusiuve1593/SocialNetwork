@@ -1,39 +1,42 @@
-import React, {useState} from "react";
-import classes from './Dialogs.module.css'
-import {DialogsItem} from "./DialogItem/DialoItem";
-import {Message} from "./Message/Message";
-import {
-    addDialogActionCreator,
-    addDialogsActionCreator,
-    addMessageActionCreator,
-    addNewPostTypeMessage,
-    addPostActionCreator,
-    addPostType,
-    dialogsDataType,
-    dialogsPageType,
-    messageDataType, stateRootType, storeType
-} from "../Redax/redax";
+import React from "react";
 import {Dialogs} from "./Dialogs";
+import {connect} from "react-redux";
+import {
+    addDialogsActionCreator,
+    addMessegeActionCreator, dialogsDataType, messageDataType,
+} from "../Redax/dialogs_reducer";
+import {AppStateType} from "../Redax/redux-store";
+import {Dispatch} from "redux";
 
-type dialogDataType = {
-    store: storeType
+export type mapStateToPropsType = {
+    newMessageState: string
+    message: messageDataType[]
+    dialogs: dialogsDataType[]
+}
+export type MapDispatchToProps = {
+    addPost: () => void
+    newText: (text: string) => void
 }
 
-export function DialogsContainer(props: dialogDataType) {
-    function addPost() {
-        props.store.dispatch(addDialogActionCreator())
+export type DialogsPropsType = mapStateToPropsType & MapDispatchToProps
+
+export function mapStateToProps(state: AppStateType): mapStateToPropsType {
+    return {
+        dialogs: state.dialogsReducer.dialogsData,
+        message: state.dialogsReducer.messageData,
+        newMessageState: state.dialogsReducer.newMessageState,
     }
-
-    function newText(text: string) {
-        props.store.dispatch(addDialogsActionCreator(text))
-
-    }
-
-    return (<Dialogs newText={newText}
-                     addPost={addPost}
-                     dispatch={props.store.dispatch}
-                     dialogs={props.store._state.dialogsPage.dialogsData}
-                     message={props.store._state.dialogsPage.messageData}
-                     newMessageState={props.store._state.dialogsPage.newMessageState}
-                     />)
 }
+
+export function MapDispatchToProps(dispatch: Dispatch): MapDispatchToProps {
+    return {
+        addPost: () => {
+            dispatch(addMessegeActionCreator())
+        },
+        newText: (text: string) => {
+            dispatch(addDialogsActionCreator(text))
+        }
+    }
+}
+
+export const DialogsContainer = connect(mapStateToProps, MapDispatchToProps)(Dialogs)
