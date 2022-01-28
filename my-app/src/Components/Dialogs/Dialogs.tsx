@@ -2,29 +2,9 @@ import React, {useState} from "react";
 import classes from './Dialogs.module.css'
 import {DialogsItem} from "./DialogItem/DialoItem";
 import {Message} from "./Message/Message";
-import {
-    addDialogActionCreator,
-    addDialogsActionCreator,
-    addMessageActionCreator,
-    addNewPostTypeMessage,
-    addPostActionCreator,
-    addPostType,
-    dialogsDataType,
-    dialogsPageType,
-    messageDataType, stateRootType, storeType
-} from "../Redax/redax";
+import {DialogsPropsType} from "./DialogsContainer";
 
-type dialogDataType = {
-    //state?: stateRootType
-    newText: (text: string) => void
-    message: messageDataType[]
-    dispatch: (action: addPostType | addNewPostTypeMessage) => void
-    addPost: () => void
-    dialogs: dialogsDataType[]
-    newMessageState: string
-}
-
-export function Dialogs(props: dialogDataType) {
+export function Dialogs(props: DialogsPropsType) {
     let dialogsElements = props.dialogs.map((i) => <DialogsItem id={i.id} name={i.name}/>)
     let messagesElements = props.message.map((i) => <Message message={i.message}/>)
 
