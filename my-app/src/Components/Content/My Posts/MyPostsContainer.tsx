@@ -1,33 +1,42 @@
 import React from "react";
-import classes from './MyPost.module.css';
-import {Post} from "./Post/Post";
+import {MyPosts} from "./MyPosts";
+import {connect} from "react-redux";
 import {
     addMessageActionCreator,
-    addNewPostTypeMessage,
     addPostActionCreator,
-    addPostType,
-    messagesDataType,
-    stateRootType, storeType
-} from "../../Redax/redax";
-import {MyPosts} from "./MyPosts";
+    messagesDataType
+} from "../../Redax/post_reducer";
+import {AppStateType} from "../../Redax/redux-store";
+import {Dispatch} from "redux";
 
-type myPostsType = {
-    store: storeType
+export type MapStateToPropsType = {
+    newMessages: string;
+    messages: messagesDataType[]
 }
 
-export function MyPostsContainer(props: myPostsType) {
-
-    function addPosts() {
-        props.store.dispatch(addPostActionCreator())
-    }
-
-    function newText(text: string) {
-        props.store.dispatch(addMessageActionCreator(text))
-    }
-
-    return (<MyPosts addPosts={addPosts}
-                     newText={newText}
-                     messages={props.store._state.contentPage.messagesData}
-                     newMessages={props.store._state.contentPage.newPostMessageState}
-                     dispatch={props.store.dispatch}/>)
+export type DispatchType = {
+    addPosts: () => void
+    newText: (text: string) => void
 }
+
+export type PostsPropsType = DispatchType & MapStateToPropsType
+
+export function MapStateToProps(state: AppStateType): MapStateToPropsType {
+    return {
+        messages: state.postReducer.messagesData,
+        newMessages: state.postReducer.newPostMessageState,
+    }
+}
+
+export function MapDispatchToProps(dispatch: Dispatch): DispatchType {
+    return {
+        addPosts: () => {
+            dispatch(addPostActionCreator())
+        },
+        newText: (text: string) => {
+            dispatch(addMessageActionCreator(text))
+        }
+    }
+}
+
+export const MyPostsContainer = connect(MapStateToProps, MapDispatchToProps)(MyPosts)
