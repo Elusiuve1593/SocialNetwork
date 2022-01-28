@@ -6,15 +6,10 @@ export type dialogsDataType = {
     name: string
 }
 export type messageDataType = {
-    id:string
+    id: string
     message: string
 }
-export type  initialStateDialogsType = {
-    newMessageState:string
-    dialogsData: dialogsDataType[]
-    messageData: messageDataType[]
-
-}
+export type initialStateDialogsType = typeof initialState
 
 export const initialState = {
     newMessageState: '',
@@ -23,16 +18,16 @@ export const initialState = {
         {id: v1(), name: 'Andrew'},
         {id: v1(), name: 'Svetlana'},
         {id: v1(), name: 'Anton'},
-    ],
+    ] as dialogsDataType[],
     messageData: [
         {id: v1(), message: 'Hi, how are u?'},
         {id: v1(), message: 'What is your favorite actor'},
         {id: v1(), message: 'Hello'},
         {id: v1(), message: 'Not today'},
-    ],
+    ] as messageDataType[],
 }
 
-export function dialogsReducer(state: initialStateDialogsType = initialState, action: generalType) {
+export function dialogsReducer(state: initialStateDialogsType = initialState, action: generalType): initialStateDialogsType {
     switch (action.type) {
         case 'ADD_MESSAGE' :
             const newMessage = {
@@ -40,7 +35,7 @@ export function dialogsReducer(state: initialStateDialogsType = initialState, ac
                 message: state.newMessageState
             }
             state.messageData.push(newMessage)
-            //reRenderEntireTree(state)
+            reRenderEntireTree()
             return state
         case 'NEW_DIALOGS_MESSAGE':
             state.newMessageState = action.newText
@@ -53,13 +48,13 @@ export function dialogsReducer(state: initialStateDialogsType = initialState, ac
 export type generalType = addDialogsActionCreatorType | addDialogActionCreatorType
 
 export type addDialogsActionCreatorType = ReturnType<typeof addDialogsActionCreator>
-export type addDialogActionCreatorType = ReturnType<typeof addDialogActionCreator>
+export type addDialogActionCreatorType = ReturnType<typeof addMessegeActionCreator>
 
 export function addDialogsActionCreator(text: string) {
     return {type: 'NEW_DIALOGS_MESSAGE', newText: text} as const
 }
 
-export function addDialogActionCreator() {
+export function addMessegeActionCreator() {
     return {type: 'ADD_MESSAGE'} as const
 }
 
