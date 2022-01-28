@@ -1,17 +1,16 @@
 import {v1} from "uuid";
 import {reRenderEntireTree} from "../../index";
-import {store} from "./redux-store";
 
+export type newPostMessageStateType = {
+    newPostMessageState: string
+}
 export type messagesDataType = {
     id: string
     message: string
     likesCount: number
 }
 
-export type initialStatePostsType = {
-    newPostMessageState: string
-    messagesData: messagesDataType[]
-}
+export type initialStatePostsType = typeof initialState
 
 export const initialState = {
     newPostMessageState: '',
@@ -26,10 +25,10 @@ export const initialState = {
             message: 'Crazy people around me...',
             likesCount: 4,
         },
-    ]
+    ] as messagesDataType[]
 }
 
-export function postReducer(state: initialStatePostsType = initialState, action: generalACType) {
+export function postReducer(state: initialStatePostsType = initialState, action: generalACType): initialStatePostsType {
     switch (action.type) {
         case 'ADD_POST':
             const newPost = {
@@ -38,11 +37,11 @@ export function postReducer(state: initialStatePostsType = initialState, action:
                 likesCount: 0
             }
             state.messagesData.push(newPost)
-            // reRenderEntireTree()
+            reRenderEntireTree()
             return state
         case 'NEW_POST_MESSAGE' :
             state.newPostMessageState = action.newText
-            //reRenderEntireTree(state)
+            reRenderEntireTree()
             return state
         default:
             return state
