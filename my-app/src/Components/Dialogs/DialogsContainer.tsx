@@ -3,7 +3,7 @@ import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
 import {
     addDialogsActionCreator,
-    addMessegeActionCreator, dialogsDataType, messageDataType,
+    addMessegeActionCreator, dialogsDataType, messageDataType, removePostAC,
 } from "../Redax/dialogs_reducer";
 import {AppStateType} from "../Redax/redux-store";
 import {Dispatch} from "redux";
@@ -16,6 +16,7 @@ export type mapStateToPropsType = {
 export type MapDispatchToProps = {
     addPost: () => void
     newText: (text: string) => void
+    removePost: (id:string) => void
 }
 
 export type DialogsPropsType = mapStateToPropsType & MapDispatchToProps
@@ -33,6 +34,10 @@ export function MapDispatchToProps(dispatch: Dispatch): MapDispatchToProps {
         addPost: () => {
             dispatch(addMessegeActionCreator())
         },
+        removePost: (id: string) => {
+            dispatch(removePostAC(id))
+        }
+        ,
         newText: (text: string) => {
             dispatch(addDialogsActionCreator(text))
         }
