@@ -1,9 +1,5 @@
 import {v1} from "uuid";
-import {reRenderEntireTree} from "../../index";
 
-export type newPostMessageStateType = {
-    newPostMessageState: string
-}
 export type messagesDataType = {
     id: string
     message: string
@@ -31,31 +27,47 @@ export const initialState = {
 export function postReducer(state: initialStatePostsType = initialState, action: generalACType): initialStatePostsType {
     switch (action.type) {
         case 'ADD_POST':
-            const newPost = {
-                id: v1(),
-                message: state.newPostMessageState,
-                likesCount: 0
+            // const newPost = {
+            //     id: v1(),
+            //     message: state.newPostMessageState,
+            //     likesCount: 0
+            // }
+            // const stateCopy = {...state}
+            // stateCopy.messagesData = [...state.messagesData]
+            // stateCopy.messagesData.push(newPost)
+            // return stateCopy
+
+            return {
+                ...state,
+                newPostMessageState: '',
+                messagesData: [...state.messagesData, {id: v1(), message: state.newPostMessageState, likesCount: 0}]
             }
-            state.messagesData.push(newPost)
-            reRenderEntireTree()
-            return state
+        case "REMOVE_POST":
+            return {
+                ...state, messagesData: [...state.messagesData.filter(i => i.id !== action.id)]
+
+            }
         case 'NEW_POST_MESSAGE' :
-            state.newPostMessageState = action.newText
-            reRenderEntireTree()
-            return state
+            return {...state, newPostMessageState: action.newText}
         default:
-            return state
+            return {...state}
     }
 }
 
-export type generalACType = addPostActionCreatorType | addMessageActionCreator;
+export type generalACType = addPostActionCreatorType | addMessageActionCreator | removePostAC;
 export type addPostActionCreatorType = ReturnType<typeof addPostActionCreator>
+export type removePostAC = ReturnType<typeof removePostAC>
 export type addMessageActionCreator = ReturnType<typeof addMessageActionCreator>
 
 export function addPostActionCreator() {
     return {type: 'ADD_POST'} as const
 }
 
+export function removePostAC(id: string) {
+    return {type: 'REMOVE_POST', id} as const
+}
+
 export function addMessageActionCreator(text: string) {
     return {type: 'NEW_POST_MESSAGE', newText: text} as const
 }
+
