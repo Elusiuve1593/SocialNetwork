@@ -5,8 +5,8 @@ import {Message} from "./Message/Message";
 import {DialogsPropsType} from "./DialogsContainer";
 
 export function Dialogs(props: DialogsPropsType) {
-    let dialogsElements = props.dialogs.map((i) => <DialogsItem id={i.id} name={i.name}/>)
-    let messagesElements = props.message.map((i) => <Message message={i.message}/>)
+    let dialogsElements = props.dialogs.map((i) => <DialogsItem key={i.id} id={i.id} name={i.name}/>)
+    let messagesElements = props.message.map((i) => <Message key={i.id} id={i.id} message={i.message} removePost={props.removePost} />)
 
     function addPost() {
         props.addPost()
