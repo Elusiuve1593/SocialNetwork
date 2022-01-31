@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {
     addMessageActionCreator,
     addPostActionCreator,
-    messagesDataType
+    messagesDataType, removePostAC
 } from "../../Redax/post_reducer";
 import {AppStateType} from "../../Redax/redux-store";
 import {Dispatch} from "redux";
@@ -17,6 +17,7 @@ export type MapStateToPropsType = {
 export type DispatchType = {
     addPosts: () => void
     newText: (text: string) => void
+    removePost: (id:string) => void
 }
 
 export type PostsPropsType = DispatchType & MapStateToPropsType
@@ -32,6 +33,9 @@ export function MapDispatchToProps(dispatch: Dispatch): DispatchType {
     return {
         addPosts: () => {
             dispatch(addPostActionCreator())
+        },
+        removePost: (id) => {
+            dispatch(removePostAC(id))
         },
         newText: (text: string) => {
             dispatch(addMessageActionCreator(text))
