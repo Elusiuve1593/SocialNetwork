@@ -1,5 +1,5 @@
 import {v1} from "uuid";
-import {reRenderEntireTree} from "../../index";
+//import {reRenderEntireTree} from "../../index";
 
 export type dialogsDataType = {
     id: string
@@ -30,25 +30,33 @@ export const initialState = {
 export function dialogsReducer(state: initialStateDialogsType = initialState, action: generalType): initialStateDialogsType {
     switch (action.type) {
         case 'ADD_MESSAGE' :
-            const newMessage = {
-                id: v1(),
-                message: state.newMessageState
+            // const newMessage = {
+            //     id: v1(),
+            //     message: state.newMessageState
+            // }
+            // const copyState = {...state}
+            // copyState.messageData = [...state.messageData]
+            // copyState.messageData.push(newMessage)
+            // return copyState
+            return {
+                ...state,
+                newMessageState: '',
+                messageData: [...state.messageData, {id: v1(), message: state.newMessageState}]
             }
-            state.messageData.push(newMessage)
-            reRenderEntireTree()
-            return state
+        case 'REMOVE_MESSAGE':
+            return {...state, messageData: [...state.messageData.filter(i => i.id !== action.payload.id)]}
         case 'NEW_DIALOGS_MESSAGE':
-            state.newMessageState = action.newText
-            return state
+            return {...state, newMessageState: action.newText}
         default:
-            return state
+            return {...state}
     }
 }
 
-export type generalType = addDialogsActionCreatorType | addDialogActionCreatorType
+export type generalType = addDialogsActionCreatorType | addMessageActionCreatorType | removeActionCreatorType
 
 export type addDialogsActionCreatorType = ReturnType<typeof addDialogsActionCreator>
-export type addDialogActionCreatorType = ReturnType<typeof addMessegeActionCreator>
+export type addMessageActionCreatorType = ReturnType<typeof addMessegeActionCreator>
+export type removeActionCreatorType = ReturnType<typeof removePostAC>
 
 export function addDialogsActionCreator(text: string) {
     return {type: 'NEW_DIALOGS_MESSAGE', newText: text} as const
@@ -58,3 +66,9 @@ export function addMessegeActionCreator() {
     return {type: 'ADD_MESSAGE'} as const
 }
 
+export function removePostAC(id: string) {
+    return {
+        type: 'REMOVE_MESSAGE',
+        payload: {id}
+    } as const
+}
