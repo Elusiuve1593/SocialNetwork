@@ -6,8 +6,8 @@ import {DispatchType} from "../MyPostsContainer";
 type messagePropsType = {
     message: string
     likesCount: number
-    id:string
-    dispatchType: (id:string) => void
+    id: string
+    dispatchType: (id: string) => void
 }
 
 export function Post(props: messagePropsType) {
