@@ -54,7 +54,7 @@ export function postReducer(state: initialStatePostsType = initialState, action:
     }
 }
 
-export type generalACType = addPostActionCreatorType | addMessageActionCreator | removePostAC;
+export type generalACType = addPostActionCreatorType | addMessageActionCreator | removePostAC ;
 export type addPostActionCreatorType = ReturnType<typeof addPostActionCreator>
 export type removePostAC = ReturnType<typeof removePostAC>
 export type addMessageActionCreator = ReturnType<typeof addMessageActionCreator>
