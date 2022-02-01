@@ -8,6 +8,7 @@ export function Navbar() {
             <nav className={classes.item}>
                 <div className={classes.item}><NavLink to='/content'>Profile</NavLink></div>
                 <div className={classes.item}><NavLink to='/dialogs'>Messages</NavLink></div>
+                <div className={classes.item}><NavLink to='/users'>Users</NavLink></div>
                 <div className={classes.item}><NavLink to='/news'>News</NavLink></div>
                 <div className={classes.item}><NavLink to='/music'>Music</NavLink></div>
                 <div className={classes.item}><NavLink to='/settings'>Settings</NavLink></div>
