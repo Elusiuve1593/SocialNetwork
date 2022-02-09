@@ -12,7 +12,6 @@ import {Settings} from "./Components/Settings/Settings";
 import {DialogsContainer} from "./Components/Dialogs/DialogsContainer";
 import {UsersContainer} from "./Components/Users/UsersContainer";
 
-
 function App(props: any) {
     return (
         <BrowserRouter>
