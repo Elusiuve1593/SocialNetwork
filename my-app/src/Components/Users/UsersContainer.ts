@@ -1,18 +1,18 @@
-import React from "react";
 import {connect} from "react-redux";
 import {Users} from "./Users";
-import {followAC, unfollowAC, usersReducer, usersType} from "../Redax/users_reducer";
+import {followAC, setUsersAC, unfollowAC, usersReducer, usersType, userType} from "../Redax/users_reducer";
 import {AppStateType} from "../Redax/redux-store";
 import {Dispatch} from "redux";
 
 export type PostsPropsType = MapStateToPropsType & MapDispatchToPropsType
 
 export type MapStateToPropsType = {
-    users: usersType[]
+    users: userType[]
 }
 export type MapDispatchToPropsType = {
-    follow: (id: string) => void
-    unFollow: (id: string) => void
+    follow: (id: string | number) => void
+    unFollow: (id: string | number) => void
+    setUsers: (users: userType[]) => void
 }
 
 export function MapStateToProps(state: AppStateType): MapStateToPropsType {
@@ -23,14 +23,16 @@ export function MapStateToProps(state: AppStateType): MapStateToPropsType {
 
 export function MapDispatchToProps(dispatch: Dispatch): MapDispatchToPropsType {
     return {
-        follow: (id: string) => {
+        follow: (id: string | number) => {
             dispatch(followAC(id))
         },
-        unFollow: (id: string) => {
+        unFollow: (id: string | number) => {
             dispatch(unfollowAC(id))
         },
+        setUsers: (users: userType[]) => {
+            dispatch(setUsersAC(users))
+        }
     }
 }
-
 
 export const UsersContainer = connect(MapStateToProps, MapDispatchToProps)(Users)
