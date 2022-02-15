@@ -1,5 +1,8 @@
 export type usersType = {
-    users:Array<userType>
+    users: Array<userType>
+    pageSize: number
+    totalCount: number
+    currentPage: number
 }
 
 export type userType = {
@@ -17,32 +20,10 @@ export type userType = {
 export type initialStatePostsType = usersType
 
 const initialState: usersType = {
-    users: [
-        // {
-        //     id: v1(),
-        //     photoUrl: 'https://cdn3.iconfinder.com/data/icons/cool-avatars-2/190/00-07-2-512.png',
-        //     isFollow: true,
-        //     fullName: 'Andrew',
-        //     status: 'Hello',
-        //     location: {city: 'Kiev', countryName: 'Ukraine'}
-        // },
-        // {
-        //     id: v1(),
-        //     photoUrl: 'https://cdn3.iconfinder.com/data/icons/cool-avatars-2/190/00-07-2-512.png',
-        //     isFollow: true,
-        //     fullName: 'Dmitro',
-        //     status: 'Today was a good day',
-        //     location: {city: 'Moscow', countryName: 'Russia'}
-        // },
-        // {
-        //     id: v1(),
-        //     photoUrl: 'https://cdn3.iconfinder.com/data/icons/cool-avatars-2/190/00-07-2-512.png',
-        //     isFollow: false,
-        //     fullName: 'Boris',
-        //     status: 'Just do it!',
-        //     location: {city: 'Minsk', countryName: 'Belarus'}
-        // },
-    ]
+    users: [],
+    pageSize: 20,
+    totalCount: 19,
+    currentPage: 1,
 }
 
 export function usersReducer(state: initialStatePostsType = initialState, action: generalType): initialStatePostsType {
@@ -61,18 +42,36 @@ export function usersReducer(state: initialStatePostsType = initialState, action
         case "SET_USERS":
             return {
                 ...state,
-                users: [...state.users, ...action.payload.users]
+                users: action.payload.users
             }
+        case "CURRENT_PAGE": {
+            return {
+                ...state,
+                currentPage: action.payload.currentPage
+            }
+        }
+        case "SET_TOTAL_COUNT": {
+            return {
+                ...state,
+                totalCount: action.payload.totalCount
+            }
+        }
         default:
             return {...state}
 
     }
 }
 
-export type generalType = followACType | unfollowACType | setUsersACType
+export type generalType = followACType
+    | unfollowACType
+    | setUsersACType
+    | currentPageACType
+    | setUsersTotalCountACType
 export type followACType = ReturnType<typeof followAC>
 export type unfollowACType = ReturnType<typeof unfollowAC>
 export type setUsersACType = ReturnType<typeof setUsersAC>
+export type currentPageACType = ReturnType<typeof currentPageAC>
+export type setUsersTotalCountACType = ReturnType<typeof setUsersTotalCountAC>
 
 export function followAC(id: string | number) {
     return {
@@ -92,5 +91,19 @@ export function setUsersAC(users: userType[]) {
     return {
         type: 'SET_USERS',
         payload: {users}
+    } as const
+}
+
+export function currentPageAC(currentPage: number) {
+    return {
+        type: 'CURRENT_PAGE',
+        payload: {currentPage}
+    } as const
+}
+
+export function setUsersTotalCountAC(totalCount: number) {
+    return {
+        type: 'SET_TOTAL_COUNT',
+        payload: {totalCount}
     } as const
 }
