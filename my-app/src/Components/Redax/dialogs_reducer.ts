@@ -54,19 +54,19 @@ export function dialogsReducer(state: initialStateDialogsType = initialState, ac
 
 export type generalType = addDialogsActionCreatorType | addMessageActionCreatorType | removeActionCreatorType
 
-export type addDialogsActionCreatorType = ReturnType<typeof addDialogsActionCreator>
-export type addMessageActionCreatorType = ReturnType<typeof addMessegeActionCreator>
-export type removeActionCreatorType = ReturnType<typeof removePostAC>
+export type addDialogsActionCreatorType = ReturnType<typeof addPost>
+export type addMessageActionCreatorType = ReturnType<typeof newText>
+export type removeActionCreatorType = ReturnType<typeof removePost>
 
-export function addDialogsActionCreator(text: string) {
-    return {type: 'NEW_DIALOGS_MESSAGE', newText: text} as const
-}
-
-export function addMessegeActionCreator() {
+export function addPost() {
     return {type: 'ADD_MESSAGE'} as const
 }
 
-export function removePostAC(id: string) {
+export function newText(text: string) {
+    return {type: 'NEW_DIALOGS_MESSAGE', newText: text} as const
+}
+
+export function removePost(id: string) {
     return {
         type: 'REMOVE_MESSAGE',
         payload: {id}
