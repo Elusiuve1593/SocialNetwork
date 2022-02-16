@@ -10,6 +10,10 @@ export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
     }
     return (
         <div>
+            {pages.map(i => {
+                return <span onClick={() => props.onClickHandler(i)}
+                             className={props.currentPage === i ? classes.selectedPage : ''}>{i} </span>
+            })}
             {props.users.map(i => {
                 return (
                     <div>
@@ -29,10 +33,7 @@ export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
                     </div>
                 )
             })}
-            {pages.map(i => {
-                return <span onClick={() => props.onClickHandler(i)}
-                             className={props.currentPage === i ? classes.selectedPage : ''}>{i} </span>
-            })}
+
         </div>
     )
 }
