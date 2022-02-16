@@ -55,19 +55,19 @@ export function postReducer(state: initialStatePostsType = initialState, action:
 }
 
 export type generalACType = addPostActionCreatorType | addMessageActionCreator | removePostAC ;
-export type addPostActionCreatorType = ReturnType<typeof addPostActionCreator>
-export type removePostAC = ReturnType<typeof removePostAC>
-export type addMessageActionCreator = ReturnType<typeof addMessageActionCreator>
+export type addPostActionCreatorType = ReturnType<typeof addPosts>
+export type removePostAC = ReturnType<typeof removePost>
+export type addMessageActionCreator = ReturnType<typeof newText>
 
-export function addPostActionCreator() {
+export function addPosts() {
     return {type: 'ADD_POST'} as const
 }
 
-export function removePostAC(id: string) {
+export function removePost(id: string) {
     return {type: 'REMOVE_POST', id} as const
 }
 
-export function addMessageActionCreator(text: string) {
+export function newText(text: string) {
     return {type: 'NEW_POST_MESSAGE', newText: text} as const
 }
 
