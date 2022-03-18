@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {
     addPosts,
     removePost,
-    newText, messagesDataType,
+    newText, messagesDataType, setAddLike, setDecreaseLike,
 } from "../../Redax/post_reducer";
 import {AppStateType} from "../../Redax/redux-store";
 import {Dispatch} from "redux";
@@ -18,6 +18,8 @@ export type DispatchType = {
     addPosts: () => void
     newText: (text: string) => void
     removePost: (id: string) => void
+    setAddLike: (id: string) => void
+    setDecreaseLike: (id: string) => void
 }
 
 export type PostsPropsType = DispatchType & MapStateToPropsType
@@ -33,4 +35,6 @@ export const MyPostsContainer = connect(MapStateToProps, {
     addPosts,
     removePost,
     newText,
+    setAddLike,
+    setDecreaseLike,
 })(MyPosts)
