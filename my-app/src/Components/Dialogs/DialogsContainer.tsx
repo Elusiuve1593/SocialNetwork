@@ -9,7 +9,6 @@ import {
     messageDataType,
 } from "../Redax/dialogs_reducer";
 import {AppStateType} from "../Redax/redux-store";
-import {Dispatch} from "redux";
 
 export type mapStateToPropsType = {
     newMessageState: string
