@@ -9,11 +9,10 @@ import {
     userType
 } from "../Redax/users_reducer";
 import {AppStateType} from "../Redax/redux-store";
-import {Dispatch} from "redux";
 import React from "react";
-import axios from "axios";
 import {UsersComponent} from "./UsersComponent";
 import {Preloader} from "../Common/Preloader/Preloader";
+import {getUsers} from "../Axios/axios";
 
 
 export type onClickHandlerType = {
@@ -22,20 +21,20 @@ export type onClickHandlerType = {
 
 class Users extends React.Component<PostsPropsType> {
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true})
-            .then(response => {
+        getUsers(this.props.currentPage, this.props.pageSize)
+            .then(data => {
                 this.props.setPreloader?.(false)
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
+                this.props.setUsers(data.items)
+                this.props.setTotalUsersCount(data.totalCount)
             })
     }
 
     onClickHandler = (i: any) => {
         this.props.setCurrentPage(i)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true})
-            .then(response => {
+        getUsers(this.props.currentPage, this.props.pageSize)
+            .then(data => {
                 this.props.setPreloader?.(false)
-                this.props.setUsers(response.data.items)
+                this.props.setUsers(data.items)
             })
     }
 
