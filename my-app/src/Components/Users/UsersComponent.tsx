@@ -3,6 +3,7 @@ import classes from "./Users.module.css";
 import {onClickHandlerType, PostsPropsType} from "./UsersContainer";
 import {NavLink} from "react-router-dom";
 import axios from "axios";
+import {deleteUsers, postUsers} from "../Axios/axios";
 
 export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -25,30 +26,17 @@ export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
                         </NavLink>
                         <div>
                             {i.followed ? <button onClick={() => {
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${i.id}`,
-                                        {
-                                            withCredentials: true,
-                                            headers: {
-                                                "API-KEY": "94628c20-c330-4c24-82e5-5b09aa1c5b50"
-                                            }
-                                        })
-                                        .then(response => {
-                                            if (response.data.resultCode === 0) {
+                                    deleteUsers(i.id)
+                                        .then(data => {
+                                            if (data.resultCode === 0) {
                                                 props.unFollow(i.id)
                                             }
                                         })
                                 }}>Unfollow</button> :
                                 <button onClick={() => {
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${i.id}`,
-                                        {},
-                                        {
-                                            withCredentials: true,
-                                            headers: {
-                                                "API-KEY": "94628c20-c330-4c24-82e5-5b09aa1c5b50"
-                                            }
-                                        })
-                                        .then(response => {
-                                            if (response.data.resultCode === 0) {
+                                    postUsers(i.id)
+                                        .then(data => {
+                                            if (data.resultCode === 0) {
                                                 props.follow(i.id)
                                             }
                                         })
