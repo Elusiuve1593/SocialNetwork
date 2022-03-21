@@ -5,6 +5,7 @@ import {AppStateType} from "../Redax/redux-store";
 import {profileType, setUsersProfile} from "../Redax/post_reducer";
 import axios from "axios";
 import {RouteComponentProps, withRouter} from "react-router-dom";
+import {getContent} from "../Axios/axios";
 
 export class ClassContent extends React.Component<PropsType> {
     componentDidMount() {
@@ -12,9 +13,10 @@ export class ClassContent extends React.Component<PropsType> {
         if (!userId) {
             userId = '2'
         }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId).then(response => {
-            this.props.setUsersProfile(response.data)
-        })
+        getContent(userId)
+            .then(data => {
+                this.props.setUsersProfile(data)
+            })
     }
 
     render() {
