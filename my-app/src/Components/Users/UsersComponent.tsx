@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Users.module.css";
 import {onClickHandlerType, PostsPropsType} from "./UsersContainer";
 import {NavLink} from "react-router-dom";
-import axios from "axios";
 import {deleteUsers, postUsers} from "../Axios/axios";
 
 export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
@@ -26,20 +25,10 @@ export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
                         </NavLink>
                         <div>
                             {i.followed ? <button onClick={() => {
-                                    deleteUsers(i.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0) {
-                                                props.unFollow(i.id)
-                                            }
-                                        })
+                                    props.deleteUsersThunk(i.id)
                                 }}>Unfollow</button> :
                                 <button onClick={() => {
-                                    postUsers(i.id)
-                                        .then(data => {
-                                            if (data.resultCode === 0) {
-                                                props.follow(i.id)
-                                            }
-                                        })
+                                   props.addUserThunk(i.id)
                                 }}>Follow</button>
                             }
                         </div>
