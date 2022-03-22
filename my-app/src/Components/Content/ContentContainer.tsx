@@ -2,10 +2,8 @@ import React from "react";
 import {Content} from "./Content";
 import {connect} from "react-redux";
 import {AppStateType} from "../Redax/redux-store";
-import {profileType, setUsersProfile} from "../Redax/post_reducer";
-import axios from "axios";
+import {profileType, setUsersProfileThunk} from "../Redax/post_reducer";
 import {RouteComponentProps, withRouter} from "react-router-dom";
-import {getContent} from "../Axios/axios";
 
 export class ClassContent extends React.Component<PropsType> {
     componentDidMount() {
@@ -13,10 +11,7 @@ export class ClassContent extends React.Component<PropsType> {
         if (!userId) {
             userId = '2'
         }
-        getContent(userId)
-            .then(data => {
-                this.props.setUsersProfile(data)
-            })
+       this.props.setUsersProfileThunk(userId)
     }
 
     render() {
@@ -31,7 +26,7 @@ export class ClassContent extends React.Component<PropsType> {
 export type PostsPropsType = mapStateToPropsType & mapDispatchToPropsType
 
 type mapDispatchToPropsType = {
-    setUsersProfile: (profile: profileType) => void
+    setUsersProfileThunk: (userId: string) => void
 }
 type mapStateToPropsType = {
     profile: profileType
@@ -49,4 +44,4 @@ export function mapStateToProps(state: AppStateType): mapStateToPropsType {
 
 const withRoutComponent = withRouter(ClassContent)
 
-export const ContentContainer = connect(mapStateToProps, {setUsersProfile})(withRoutComponent)
+export const ContentContainer = connect(mapStateToProps, {setUsersProfileThunk})(withRoutComponent)
