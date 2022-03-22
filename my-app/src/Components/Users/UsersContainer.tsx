@@ -1,19 +1,12 @@
 import {connect} from "react-redux";
 import {
-    follow,
-    unFollow,
-    setUsers,
     setCurrentPage,
-    setPreloader,
-    setTotalUsersCount,
-    userType
+    userType, getUsersThunk, deleteUsersThunk, addUserThunk
 } from "../Redax/users_reducer";
 import {AppStateType} from "../Redax/redux-store";
 import React from "react";
 import {UsersComponent} from "./UsersComponent";
 import {Preloader} from "../Common/Preloader/Preloader";
-import {getUsers} from "../Axios/axios";
-
 
 export type onClickHandlerType = {
     onClickHandler: (i: any) => void
@@ -21,21 +14,12 @@ export type onClickHandlerType = {
 
 class Users extends React.Component<PostsPropsType> {
     componentDidMount() {
-        getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.setPreloader?.(false)
-                this.props.setUsers(data.items)
-                this.props.setTotalUsersCount(data.totalCount)
-            })
+        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize)
     }
 
     onClickHandler = (i: any) => {
         this.props.setCurrentPage(i)
-        getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.setPreloader?.(false)
-                this.props.setUsers(data.items)
-            })
+        this.props.getUsersThunk(this.props.currentPage, this.props.pageSize)
     }
 
     render() {
@@ -45,13 +29,12 @@ class Users extends React.Component<PostsPropsType> {
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
                 users={this.props.users}
-                follow={this.props.follow}
-                unFollow={this.props.unFollow}
                 onClickHandler={this.onClickHandler}
                 currentPage={this.props.currentPage}
                 setCurrentPage={this.props.setCurrentPage}
-                setTotalUsersCount={this.props.setTotalUsersCount}
-                setUsers={this.props.setUsers}
+                getUsersThunk={this.props.getUsersThunk}
+                deleteUsersThunk={this.props.deleteUsersThunk}
+                addUserThunk={this.props.addUserThunk}
             />
         </>
     }
@@ -66,14 +49,6 @@ export type MapStateToPropsType = {
     currentPage: number
     isFetching?: boolean
 }
-export type MapDispatchToPropsType = {
-    follow: (id: string | number) => void
-    unFollow: (id: string | number) => void
-    setUsers: (users: userType[]) => void
-    setCurrentPage: (pageNumber: number) => void
-    setTotalUsersCount: (totalCount: number) => void
-    setPreloader?: (setPreloader: boolean) => void
-}
 
 export function MapStateToProps(state: AppStateType): MapStateToPropsType {
     return {
@@ -83,6 +58,13 @@ export function MapStateToProps(state: AppStateType): MapStateToPropsType {
         currentPage: state.usersReducer.currentPage,
         isFetching: state.usersReducer.isFetching,
     }
+}
+
+export type MapDispatchToPropsType = {
+    setCurrentPage: (pageNumber: number) => void
+    getUsersThunk: (currentPage: number, pageSize: number) => void
+    deleteUsersThunk: (id: string | number) => void
+    addUserThunk: (id: string | number) => void
 }
 
 // export function MapDispatchToProps(dispatch: Dispatch): MapDispatchToPropsType {
@@ -109,5 +91,5 @@ export function MapStateToProps(state: AppStateType): MapStateToPropsType {
 // }
 
 export const UsersContainer = connect(MapStateToProps, {
-    follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, setPreloader
+    setCurrentPage, getUsersThunk, deleteUsersThunk, addUserThunk
 })(Users)
