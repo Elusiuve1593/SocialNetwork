@@ -1,4 +1,6 @@
 import {v1} from "uuid";
+import {Dispatch} from "redux";
+import {getContent} from "../Axios/axios";
 
 export type postType = {
     newPostMessageState: string
@@ -102,8 +104,8 @@ export function postReducer(state: initialStatePostsType = initialState, action:
                 messagesData: [...state.messagesData.filter(i => i.id === action.id ? i.likesCount++ : i.likesCount)]
             }
         }
-        case "DECREASE_LIKE":{
-            return{
+        case "DECREASE_LIKE": {
+            return {
                 ...state,
                 messagesData: [...state.messagesData.filter(i => i.id === action.id ? i.likesCount-- : i.likesCount)]
             }
@@ -153,10 +155,19 @@ export function setAddLike(id: string) {
     } as const
 }
 
-export function setDecreaseLike(id: string){
+export function setDecreaseLike(id: string) {
     return {
         type: 'DECREASE_LIKE',
         id
-    }as const
+    } as const
+}
+
+export const setUsersProfileThunk = (userId: string) => {
+    return (dispatch: Dispatch<generalACType>) => {
+        getContent(userId)
+            .then(data => {
+                dispatch(setUsersProfile(data))
+            })
+    }
 }
 
