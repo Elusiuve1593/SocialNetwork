@@ -1,3 +1,6 @@
+import {deleteUsers, getUsers, postUsers} from "../Axios/axios";
+import {Dispatch} from "redux";
+
 export type usersType = {
     users: Array<userType>
     pageSize: number
@@ -59,7 +62,7 @@ export function usersReducer(state: initialStatePostsType = initialState, action
             }
         }
         case "SET_PRELOADER": {
-            return{
+            return {
                 ...state,
                 isFetching: action.payload.setPreloader
             }
@@ -124,4 +127,37 @@ export function setPreloader(setPreloader: boolean) {
         type: 'SET_PRELOADER',
         payload: {setPreloader}
     } as const
+}
+
+export const getUsersThunk = (currentPage: number, pageSize: number) => {
+    return (dispatch: Dispatch<generalType>) => {
+        getUsers(currentPage, pageSize)
+            .then(data => {
+                dispatch(setPreloader?.(false))
+                dispatch(setUsers(data.items))
+                dispatch(setTotalUsersCount(data.totalCount))
+            })
+    }
+}
+
+export const deleteUsersThunk = (id: string | number) => {
+    return (dispatch: Dispatch<generalType>) => {
+        deleteUsers(id)
+            .then(data => {
+                if (data.resultCode === 0) {
+                    dispatch(unFollow(id))
+                }
+            })
+    }
+}
+
+export const addUserThunk = (id: string | number) => {
+    return (dispatch: Dispatch<generalType>) => {
+        postUsers(id)
+            .then(data => {
+                if (data.resultCode === 0) {
+                    dispatch(follow(id))
+                }
+            })
+    }
 }
