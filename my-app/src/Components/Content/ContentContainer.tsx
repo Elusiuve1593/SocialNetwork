@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {AppStateType} from "../Redax/redux-store";
 import {profileType, setUsersProfileThunk} from "../Redax/post_reducer";
 import {RouteComponentProps, withRouter} from "react-router-dom";
+import {initialStateType} from "../Redax/auth_reducer";
 
 export class ClassContent extends React.Component<PropsType> {
     componentDidMount() {
@@ -17,7 +18,7 @@ export class ClassContent extends React.Component<PropsType> {
     render() {
         return (
             <div>
-                <Content profile={this.props.profile}/>
+                <Content profile={this.props.profile} authReducer={this.props.authReducer}/>
             </div>
         )
     }
@@ -30,6 +31,7 @@ type mapDispatchToPropsType = {
 }
 type mapStateToPropsType = {
     profile: profileType
+    authReducer: boolean
 }
 type withRoutComponentType = {
     userId: string
@@ -38,7 +40,8 @@ type PropsType = RouteComponentProps<withRoutComponentType> & PostsPropsType
 
 export function mapStateToProps(state: AppStateType): mapStateToPropsType {
     return {
-        profile: state.postReducer.profile
+        profile: state.postReducer.profile,
+        authReducer: state.authReducer.isAuth,
     }
 }
 
