@@ -3,10 +3,12 @@ import classes from './Dialogs.module.css'
 import {DialogsItem} from "./DialogItem/DialoItem";
 import {Message} from "./Message/Message";
 import {DialogsPropsType} from "./DialogsContainer";
+import {Redirect} from "react-router-dom";
 
 export function Dialogs(props: DialogsPropsType) {
     let dialogsElements = props.dialogs.map((i) => <DialogsItem key={i.id} id={i.id} name={i.name}/>)
-    let messagesElements = props.message.map((i) => <Message key={i.id} id={i.id} message={i.message} removePost={props.removePost} />)
+    let messagesElements = props.message.map((i) => <Message key={i.id} id={i.id} message={i.message}
+                                                             removePost={props.removePost}/>)
 
     function addPost() {
         props.addPost()
@@ -19,6 +21,10 @@ export function Dialogs(props: DialogsPropsType) {
             let text = newPostElement.current?.value
             props.newText(text)
         }
+    }
+
+    if (!props.authReducer) {
+        return <Redirect to={'/login/'}/>
     }
 
     return (
