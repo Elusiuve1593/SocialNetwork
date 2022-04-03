@@ -1,25 +1,19 @@
 import React from "react";
 import {profileType} from "../../Redax/post_reducer";
 import {Preloader} from "../../Common/Preloader/Preloader";
+import {Redirect} from 'react-router-dom'
 
 type ProfileInfoType = {
     profile: profileType
+    authReducer: boolean
 }
-// profile: {
-//
-//
-//     lookingForAJob: true,
-//         lookingForAJobDescription: 'lookingForAJobDescription',
-//         fullName: 'fullName',
-//         userId: 1,
-//         photos: {
-//         small: 'small',
-//             large: 'large',
-//     }
-// },
+
 export function ProfileInfo(props: ProfileInfoType) {
     if (!props.profile) {
         return <Preloader/>
+    }
+    if (!props.authReducer) {
+        return <Redirect to={'/login/'}/>
     }
     return (
         <div>
