@@ -35,6 +35,7 @@ class Users extends React.Component<PostsPropsType> {
                 getUsersThunk={this.props.getUsersThunk}
                 deleteUsersThunk={this.props.deleteUsersThunk}
                 addUserThunk={this.props.addUserThunk}
+                authReducer={this.props.authReducer}
             />
         </>
     }
@@ -48,6 +49,7 @@ export type MapStateToPropsType = {
     totalUsersCount: number
     currentPage: number
     isFetching?: boolean
+    authReducer: boolean
 }
 
 export function MapStateToProps(state: AppStateType): MapStateToPropsType {
@@ -57,6 +59,7 @@ export function MapStateToProps(state: AppStateType): MapStateToPropsType {
         totalUsersCount: state.usersReducer.totalCount,
         currentPage: state.usersReducer.currentPage,
         isFetching: state.usersReducer.isFetching,
+        authReducer: state.authReducer.isAuth,
     }
 }
 
