@@ -1,14 +1,16 @@
 import React from "react";
 import classes from "./Users.module.css";
 import {onClickHandlerType, PostsPropsType} from "./UsersContainer";
-import {NavLink} from "react-router-dom";
-import {deleteUsers, postUsers} from "../Axios/axios";
+import {NavLink, Redirect} from "react-router-dom";
 
 export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     const pages = []
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
+    }
+    if (!props.authReducer) {
+        return <Redirect to={'/login/'}/>
     }
     return (
         <div>
@@ -28,7 +30,7 @@ export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
                                     props.deleteUsersThunk(i.id)
                                 }}>Unfollow</button> :
                                 <button onClick={() => {
-                                   props.addUserThunk(i.id)
+                                    props.addUserThunk(i.id)
                                 }}>Follow</button>
                             }
                         </div>
