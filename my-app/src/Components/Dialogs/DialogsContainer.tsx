@@ -14,6 +14,7 @@ export type mapStateToPropsType = {
     newMessageState: string
     message: messageDataType[]
     dialogs: dialogsDataType[]
+    authReducer: boolean
 }
 export type MapDispatchToProps = {
     addPost: () => void
@@ -28,6 +29,8 @@ export function mapStateToProps(state: AppStateType): mapStateToPropsType {
         dialogs: state.dialogsReducer.dialogsData,
         message: state.dialogsReducer.messageData,
         newMessageState: state.dialogsReducer.newMessageState,
+        authReducer: state.authReducer.isAuth,
+
     }
 }
 
