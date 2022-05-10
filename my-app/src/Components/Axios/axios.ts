@@ -27,3 +27,11 @@ export function getContent(userId: string) {
     return instance.get(`profile/` + userId)
         .then(response => response.data)
 }
+
+export function getStatus(userId: string) {
+    return instance.get(`profile/status/` + userId)
+}
+
+export function updateStatus(status: string){
+    return instance.put(`profile/status`, {status})
+}
