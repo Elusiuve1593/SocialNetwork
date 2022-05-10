@@ -1,10 +1,11 @@
-import React from "react";
+import React, {ComponentType} from "react";
 import {Content} from "./Content";
-import {connect} from "react-redux";
 import {AppStateType} from "../Redax/redux-store";
 import {profileType, setUsersProfileThunk} from "../Redax/post_reducer";
 import {RouteComponentProps, withRouter} from "react-router-dom";
-import {initialStateType} from "../Redax/auth_reducer";
+import {compose} from "redux";
+import {withRedirect} from "../../hoc/withRedirect";
+import {connect} from "react-redux";
 
 export class ClassContent extends React.Component<PropsType> {
     componentDidMount() {
@@ -12,13 +13,13 @@ export class ClassContent extends React.Component<PropsType> {
         if (!userId) {
             userId = '2'
         }
-       this.props.setUsersProfileThunk(userId)
+        this.props.setUsersProfileThunk(userId)
     }
 
     render() {
         return (
             <div>
-                <Content profile={this.props.profile} authReducer={this.props.authReducer}/>
+                <Content profile={this.props.profile}/>
             </div>
         )
     }
@@ -31,7 +32,6 @@ type mapDispatchToPropsType = {
 }
 type mapStateToPropsType = {
     profile: profileType
-    authReducer: boolean
 }
 type withRoutComponentType = {
     userId: string
@@ -41,10 +41,15 @@ type PropsType = RouteComponentProps<withRoutComponentType> & PostsPropsType
 export function mapStateToProps(state: AppStateType): mapStateToPropsType {
     return {
         profile: state.postReducer.profile,
-        authReducer: state.authReducer.isAuth,
     }
 }
 
-const withRoutComponent = withRouter(ClassContent)
+// const withRoutComponent = withRouter(ClassContent)
+//
+// export const ContentContainer = withRedirect(connect(mapStateToProps, {setUsersProfileThunk})(withRoutComponent))
 
-export const ContentContainer = connect(mapStateToProps, {setUsersProfileThunk})(withRoutComponent)
+export const ContentContainer = compose<ComponentType>(
+    connect(mapStateToProps, {setUsersProfileThunk}),
+    withRouter,
+    withRedirect,
+)(ClassContent)
