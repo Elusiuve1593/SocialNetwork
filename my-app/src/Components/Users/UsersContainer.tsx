@@ -4,9 +4,11 @@ import {
     userType, getUsersThunk, deleteUsersThunk, addUserThunk
 } from "../Redax/users_reducer";
 import {AppStateType} from "../Redax/redux-store";
-import React from "react";
+import React, {ComponentType} from "react";
 import {UsersComponent} from "./UsersComponent";
 import {Preloader} from "../Common/Preloader/Preloader";
+import {withRedirect} from "../../hoc/withRedirect";
+import {compose} from "redux";
 
 export type onClickHandlerType = {
     onClickHandler: (i: any) => void
@@ -93,6 +95,6 @@ export type MapDispatchToPropsType = {
 //     }
 // }
 
-export const UsersContainer = connect(MapStateToProps, {
+export const UsersContainer = compose<ComponentType>(connect(MapStateToProps, {
     setCurrentPage, getUsersThunk, deleteUsersThunk, addUserThunk
-})(Users)
+}), withRedirect)(Users)
