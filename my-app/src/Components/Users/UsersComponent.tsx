@@ -9,9 +9,6 @@ export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
-    if (!props.authReducer) {
-        return <Redirect to={'/login/'}/>
-    }
     return (
         <div>
             {pages.map(i => {
