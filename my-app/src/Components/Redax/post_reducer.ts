@@ -1,9 +1,10 @@
 import {v1} from "uuid";
 import {Dispatch} from "redux";
-import {getContent} from "../Axios/axios";
+import {getContent, getStatus, updateStatus} from "../Axios/axios";
 
 export type postType = {
     newPostMessageState: string
+    status: string
     profile: profileType
     messagesData: messagesDataType[]
 }
@@ -40,6 +41,7 @@ export type initialStatePostsType = postType
 
 const initialState: postType = {
     newPostMessageState: '',
+    status: '',
     profile: {
         aboutMe: 'Learning',
         contacts: {
@@ -110,10 +112,15 @@ export function postReducer(state: initialStatePostsType = initialState, action:
                 messagesData: [...state.messagesData.filter(i => i.id === action.id ? i.likesCount-- : i.likesCount)]
             }
         }
-        case 'NEW_POST_MESSAGE' :
+        case 'NEW_POST_MESSAGE' : {
             return {...state, newPostMessageState: action.newText}
-        case "SET_USERS_PROFILE":
+        }
+        case "SET_USERS_PROFILE": {
             return {...state, profile: action.profile}
+        }
+        case "SET_USER_PROFILE_STATUS" : {
+            return {...state, status: action.status}
+        }
         default:
             return {...state}
     }
@@ -124,13 +131,16 @@ export type generalACType = addPostActionCreatorType
     | removePostAC
     | setUsersProfile
     | setAddLike
-    | setDecreaseLike;
+    | setDecreaseLike
+    | setUserProfileType;
+
 export type addPostActionCreatorType = ReturnType<typeof addPosts>
 export type removePostAC = ReturnType<typeof removePost>
 export type addMessageActionCreator = ReturnType<typeof newText>
 export type setUsersProfile = ReturnType<typeof setUsersProfile>
 export type setAddLike = ReturnType<typeof setAddLike>
 export type setDecreaseLike = ReturnType<typeof setDecreaseLike>
+export type setUserProfileType = ReturnType<typeof setUserStatus>
 
 export function addPosts() {
     return {type: 'ADD_POST'} as const
@@ -162,6 +172,10 @@ export function setDecreaseLike(id: string) {
     } as const
 }
 
+export function setUserStatus(status: string) {
+    return {type: 'SET_USER_PROFILE_STATUS', status} as const
+}
+
 export const setUsersProfileThunk = (userId: string) => {
     return (dispatch: Dispatch<generalACType>) => {
         getContent(userId)
@@ -170,4 +184,25 @@ export const setUsersProfileThunk = (userId: string) => {
             })
     }
 }
+
+export const getUserStatusThunk = (userId: string) => {
+    return (dispatch: Dispatch<generalACType>) => {
+        getStatus(userId)
+            .then(response => {
+                dispatch(setUserStatus(response.data))
+            })
+    }
+}
+
+export const updateUserStatusThunk = (status: string) => {
+    return (dispatch: Dispatch<generalACType>) => {
+        updateStatus(status)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(setUserStatus(status))
+                }
+            })
+    }
+}
+
 
