@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ComponentType} from "react";
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
 import {
@@ -9,6 +9,8 @@ import {
     messageDataType,
 } from "../Redax/dialogs_reducer";
 import {AppStateType} from "../Redax/redux-store";
+import {withRedirect} from "../../hoc/withRedirect";
+import {compose} from "redux";
 
 export type mapStateToPropsType = {
     newMessageState: string
@@ -34,8 +36,8 @@ export function mapStateToProps(state: AppStateType): mapStateToPropsType {
     }
 }
 
-export const DialogsContainer = connect(mapStateToProps, {
+export const DialogsContainer = compose<ComponentType>(connect(mapStateToProps, {
     addPost,
     newText,
     removePost,
-})(Dialogs)
+}), withRedirect)(Dialogs)
