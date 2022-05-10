@@ -6,6 +6,8 @@ import {ProfileStatus} from "../ProfileStatus/ProfileStatus";
 
 type ProfileInfoType = {
     profile: profileType
+    status: (status: string) => void
+    updateUserStatusThunk: (status: string) => void
 }
 
 export function ProfileInfo(props: ProfileInfoType) {
@@ -25,7 +27,7 @@ export function ProfileInfo(props: ProfileInfoType) {
             <div>
                 <img src={props.profile.photos.large}/>
                 <div><b>fullName:</b> {props.profile.fullName}</div>
-                <div><b>Status: </b> <ProfileStatus aboutMe={props.profile.aboutMe}/></div>
+                <div><b>Status: </b> <ProfileStatus status={props.status} updateUserStatusThunk={props.updateUserStatusThunk}/></div>
                 <h3>Contacts:</h3>
                 <ul>
                     <li>{props.profile.contacts.facebook}</li>
