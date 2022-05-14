@@ -1,7 +1,11 @@
 import React from "react";
+import {LoginForm} from "./LoginForm";
 
-export function Login(){
+export function Login() {
     return (
-        <div>LOGIN</div>
+        <>
+            <h1>LOGIN</h1>
+            <LoginForm/>
+        </>
     )
 }
