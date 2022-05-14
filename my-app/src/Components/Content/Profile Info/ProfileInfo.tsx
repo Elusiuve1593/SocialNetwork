@@ -1,7 +1,6 @@
 import React from "react";
 import {profileType} from "../../Redax/post_reducer";
 import {Preloader} from "../../Common/Preloader/Preloader";
-import {Redirect} from 'react-router-dom'
 import {ProfileStatus} from "../ProfileStatus/ProfileStatus";
 
 type ProfileInfoType = {
