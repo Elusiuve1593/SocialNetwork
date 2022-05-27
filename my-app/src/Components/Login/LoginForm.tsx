@@ -1,11 +1,5 @@
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
-
-export type FormDataType = {
-    onSubmit: () => void
-    input: string
-    password: string
-    checkbox: boolean
-}
+import {FormDataType} from "./Login";
 
 export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props: any) => {
     return (
@@ -20,7 +14,7 @@ export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props: any)
                 <Field type={"checkbox"} component={"input"} name={"checkbox"}/> Remember me!
             </div>
             <div>
-                <button>Press</button>
+                <button>Login</button>
             </div>
         </form>
     )
