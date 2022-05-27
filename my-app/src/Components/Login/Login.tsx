@@ -1,7 +1,14 @@
 import React from "react";
-import {FormDataType, LoginReduxForm} from "./LoginForm";
+import {LoginReduxForm} from "./LoginForm";
 
-export function Login(props: FormDataType) {
+export type FormDataType = {
+    onSubmit: () => void
+    input: string
+    password: string
+    checkbox: boolean
+}
+
+export function Login(props: any) {
     const onSubmit = () => {
 
     }
