@@ -3,15 +3,10 @@ import './Components/Header/Header.module.css';
 import './Components/Content/Content.module.css';
 import './Components/Navbar/Navbar.module.css';
 import {Navbar} from "./Components/Navbar/Navbar";
-import {Music} from "./Components/Music/Music";
-import {News} from "./Components/News/News";
-import {Settings} from "./Components/Settings/Settings";
 import {DialogsContainer} from "./Components/Dialogs/DialogsContainer";
 import {UsersContainer} from "./Components/Users/UsersContainer";
 import {ContentContainer} from "./Components/Content/ContentContainer";
-import {BrowserRouter} from "react-router-dom";
-import {Route} from "react-router-dom";
-import {Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {HeaderContainer} from "./Components/Header/HeaderContainer";
 import {Login} from "./Components/Login/Login";
 
@@ -40,3 +35,11 @@ function App(props: any) {
 }
 
 export default App;
+
+// const changeFilter = useCallback((value: FilterValuesType, todolistId: string) => {
+//     dispatch(changeFilterAC(value, todolistId))
+// }, [dispatch])
+
+
+// export const AddItemForm = React.memo((props: AddItemFormPropsType) => {
+// })
