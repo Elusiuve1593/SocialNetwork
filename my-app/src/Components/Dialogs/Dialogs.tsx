@@ -1,11 +1,10 @@
-import React, {useState} from "react";
+import React, {memo} from "react";
 import classes from './Dialogs.module.css'
 import {DialogsItem} from "./DialogItem/DialoItem";
 import {Message} from "./Message/Message";
 import {DialogsPropsType} from "./DialogsContainer";
-import {Redirect} from "react-router-dom";
 
-export function Dialogs(props: DialogsPropsType) {
+export const Dialogs = memo((props: DialogsPropsType) => {
     let dialogsElements = props.dialogs.map((i) => <DialogsItem key={i.id} id={i.id} name={i.name}/>)
     let messagesElements = props.message.map((i) => <Message key={i.id} id={i.id} message={i.message}
                                                              removePost={props.removePost}/>)
@@ -38,4 +37,4 @@ export function Dialogs(props: DialogsPropsType) {
             </div>
         </div>
     );
-}
+})
