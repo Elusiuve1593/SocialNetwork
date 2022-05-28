@@ -1,7 +1,8 @@
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {FormDataType} from "./Login";
+import {memo} from "react";
 
-export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props: any) => {
+export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = memo((props: any) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -18,7 +19,7 @@ export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = (props: any)
             </div>
         </form>
     )
-}
+})
 export const LoginReduxForm = reduxForm<FormDataType>({
     form: "login"
 })(LoginForm)
