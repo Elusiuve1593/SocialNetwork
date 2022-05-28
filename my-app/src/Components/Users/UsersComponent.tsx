@@ -1,9 +1,9 @@
-import React from "react";
+import React, {memo} from "react";
 import classes from "./Users.module.css";
 import {onClickHandlerType, PostsPropsType} from "./UsersContainer";
 import {NavLink, Redirect} from "react-router-dom";
 
-export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
+export const UsersComponent = memo((props: PostsPropsType & onClickHandlerType) => {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     const pages = []
     for (let i = 1; i <= pagesCount; i++) {
@@ -43,4 +43,4 @@ export function UsersComponent(props: PostsPropsType & onClickHandlerType) {
 
         </div>
     )
-}
+})
