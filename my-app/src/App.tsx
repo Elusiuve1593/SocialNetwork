@@ -10,8 +10,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {HeaderContainer} from "./Components/Header/HeaderContainer";
 import {Login} from "./Components/Login/Login";
 
-function App(props: any) {
-
+function App() {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
