@@ -35,11 +35,3 @@ function App(props: any) {
 }
 
 export default App;
-
-// const changeFilter = useCallback((value: FilterValuesType, todolistId: string) => {
-//     dispatch(changeFilterAC(value, todolistId))
-// }, [dispatch])
-
-
-// export const AddItemForm = React.memo((props: AddItemFormPropsType) => {
-// })
