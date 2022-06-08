@@ -1,6 +1,6 @@
 import {v1} from "uuid";
 import {Dispatch} from "redux";
-import {getContent, getStatus, updateStatus} from "../Axios/axios";
+import {api} from "../Axios/axios";
 
 export type postType = {
     newPostMessageState: string
@@ -178,7 +178,7 @@ export function setUserStatus(status: string) {
 
 export const setUsersProfileThunk = (userId: string) => {
     return (dispatch: Dispatch<generalACType>) => {
-        getContent(userId)
+        api.getContent(userId)
             .then(data => {
                 dispatch(setUsersProfile(data))
             })
@@ -187,7 +187,7 @@ export const setUsersProfileThunk = (userId: string) => {
 
 export const getUserStatusThunk = (userId: string) => {
     return (dispatch: Dispatch<generalACType>) => {
-        getStatus(userId)
+        api.getStatus(userId)
             .then(response => {
                 dispatch(setUserStatus(response.data))
             })
@@ -196,7 +196,7 @@ export const getUserStatusThunk = (userId: string) => {
 
 export const updateUserStatusThunk = (status: string) => {
     return (dispatch: Dispatch<generalACType>) => {
-        updateStatus(status)
+        api.updateStatus(status)
             .then(response => {
                 if (response.data.resultCode === 0) {
                     dispatch(setUserStatus(status))
