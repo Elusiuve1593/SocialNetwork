@@ -1,13 +1,8 @@
 import React from "react";
 import {MyPosts} from "./MyPosts";
 import {connect} from "react-redux";
-import {
-    addPosts,
-    removePost,
-    newText, messagesDataType, setAddLike, setDecreaseLike,
-} from "../../Redax/post_reducer";
+import {addPosts, messagesDataType, newText, removePost, setAddLike, setDecreaseLike,} from "../../Redax/post_reducer";
 import {AppStateType} from "../../Redax/redux-store";
-import {Dispatch} from "redux";
 
 export type MapStateToPropsType = {
     newMessages: string;
@@ -15,7 +10,7 @@ export type MapStateToPropsType = {
 }
 
 export type DispatchType = {
-    addPosts: () => void
+    addPosts: (newPostText:string) => void
     newText: (text: string) => void
     removePost: (id: string) => void
     setAddLike: (id: string) => void
