@@ -8,8 +8,12 @@
 }
 
 .login {
-    float:right;
+    float: right;
     color: darkblue;
     padding-top: 5px;
     padding-right: 10px;
+}
+
+.logout {
+    margin-left: 10px;
 }
