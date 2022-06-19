@@ -2,23 +2,15 @@ import React, {memo} from "react";
 import classes from './MyPost.module.css';
 import {Post} from "./Post/Post";
 import {PostsPropsType} from "./MyPostsContainer";
+import {MyPostsForm, MyPostsReduxForm} from "./MyPostsForm";
 
 export const MyPosts = memo((props: PostsPropsType) => {
     const posts = props.messages.map((i) => <Post key={i.id} message={i.message} likesCount={i.likesCount} id={i.id}
                                                   dispatchType={props.removePost} setAddLike={props.setAddLike}
                                                   setDecreaseLike={props.setDecreaseLike}/>)
 
-    function addPosts() {
-        props.addPosts()
-    }
-
-    const newPostElement = React.createRef<HTMLTextAreaElement>()
-
-    function newText() {
-        if (newPostElement.current) {
-            let text = newPostElement.current?.value
-            props.newText(text)
-        }
+    function addPosts(values: any) {
+        props.addPosts(values.newPostText)
     }
 
     return (
@@ -26,13 +18,10 @@ export const MyPosts = memo((props: PostsPropsType) => {
             <div>
                 MyPosts
                 <div>
-                    <textarea ref={newPostElement} value={props.newMessages}
-                              onChange={newText}/>
-                    <button onClick={addPosts}>Add post</button>
+                    <MyPostsReduxForm onSubmit={addPosts}/>
                     {posts}
                 </div>
             </div>
-
         </div>
     )
 })
