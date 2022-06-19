@@ -31,4 +31,13 @@ export const api = {
     updateStatus(status: string) {
         return instance.put(`profile/status`, {status})
     },
+    login(email: string, password: string, rememberMe: boolean = false) {
+        return instance.post(`auth/login`, {email, password, rememberMe})
+    },
+    authStatus() {
+        return instance.get(`auth/me`)
+    },
+    logout() {
+        return instance.delete(`auth/login`)
+    },
 }
