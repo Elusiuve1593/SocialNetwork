@@ -93,7 +93,7 @@ export function postReducer(state: initialStatePostsType = initialState, action:
             return {
                 ...state,
                 newPostMessageState: '',
-                messagesData: [...state.messagesData, {id: v1(), message: state.newPostMessageState, likesCount: 1}]
+                messagesData: [...state.messagesData, {id: v1(), message: action.newPostText, likesCount: 1}]
             }
         case "REMOVE_POST":
             return {
@@ -142,8 +142,8 @@ export type setAddLike = ReturnType<typeof setAddLike>
 export type setDecreaseLike = ReturnType<typeof setDecreaseLike>
 export type setUserProfileType = ReturnType<typeof setUserStatus>
 
-export function addPosts() {
-    return {type: 'ADD_POST'} as const
+export function addPosts(newPostText: string) {
+    return {type: 'ADD_POST', newPostText} as const
 }
 
 export function removePost(id: string) {
