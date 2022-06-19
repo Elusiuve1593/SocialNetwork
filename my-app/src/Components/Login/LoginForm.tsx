@@ -6,13 +6,13 @@ export const LoginForm: React.FC<InjectedFormProps<FormDataType>> = memo((props:
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field placeholder={"Login"} component={"input"} name={"login"}/>
+                <Field placeholder={"Email"} component={"input"} name={"email"}/>
             </div>
             <div>
-                <Field placeholder={"Password"} component={"input"} name={"password"}/>
+                <Field placeholder={"Password"} component={"input"} name={"password"} type={"password"}/>
             </div>
             <div>
-                <Field type={"checkbox"} component={"input"} name={"checkbox"}/> Remember me!
+                <Field type={"checkbox"} component={"input"} name={"rememberMe"}/> Remember me!
             </div>
             <div>
                 <button>Login</button>
