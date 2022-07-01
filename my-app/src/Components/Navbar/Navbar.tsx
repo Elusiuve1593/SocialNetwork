@@ -1,4 +1,5 @@
 import React from "react";
+// @ts-ignore
 import {NavLink} from "react-router-dom";
 import classes from './Navbar.module.css'
 
