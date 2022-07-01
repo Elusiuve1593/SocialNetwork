@@ -4,6 +4,7 @@ import {dialogsReducer} from "./dialogs_reducer";
 import {usersReducer} from "./users_reducer";
 import {authReducer} from "./auth_reducer";
 import thunk from "redux-thunk";
+// @ts-ignore
 import {reducer as formReducer} from "redux-form";
 
 export const rootReducer = combineReducers({
