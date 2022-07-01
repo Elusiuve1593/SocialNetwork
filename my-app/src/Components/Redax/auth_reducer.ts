@@ -1,17 +1,17 @@
-import {Dispatch} from "redux";
 import {api} from "../Axios/axios";
+import {Dispatch} from "redux";
 
 export type initialStateType = {
-    id: number
-    email: null | string
-    login: string
+    useId: number | null
+    email: string | null
+    login: string | null
     isAuth: boolean
 }
 
-const initialState = {
-    id: 0,
+export const initialState = {
+    useId: null,
     email: null,
-    login: 'Your Profile',
+    login: null,
     isAuth: false
 }
 
@@ -30,46 +30,37 @@ export function authReducer(state: initialStateType = initialState, action: setU
 
 export type setUserDataType = ReturnType<typeof setUserData>
 
-export function setUserData(userId: number, email: string, login: string, isAuth: boolean) {
+export function setUserData(id: string, email: string, login: string, isAuth: boolean) {
     return {
         type: "AUTH_REDUCER",
-        payload: {userId, email, login, isAuth}
+        payload: {id, email, login, isAuth}
     } as const
 }
 
-export const authThunk = () => {
-    return (dispatch: Dispatch) => {
-        api.authStatus()
-            .then(res => {
-                if (res.data.resultCode === 0) {
-                    const {userId, email, login} = res.data.data
-                    dispatch(setUserData(userId, email, login, true))
-                }
-            })
+export const getAuthUserData = () => {
+    return async (dispatch: Dispatch) => {
+        const res = await api.me()
+        if (res.data.resultCode === 0) {
+            let {id, login, email} = res.data.data
+            dispatch(setUserData(id, email, login, true))
+        }
     }
 }
 
 export const login = (email: string, password: string, rememberMe: boolean) => {
-    return (dispatch: Dispatch) => {
-        api.login(email, password, rememberMe)
-            .then((res) => {
-                if (res.data.resultCode === 0) {
-                    // @ts-ignore
-                    dispatch(authThunk())
-                }
-            })
+    return async (dispatch: Dispatch) => {
+        let res = await api.userLogin(email, password, rememberMe)
+        if (res.data.resultCode === 0) {
+            dispatch(setUserData('', '', '', true))
+        }
     }
 }
 
 export const logout = () => {
-    return (dispatch: Dispatch) => {
-        api.logout()
-            .then(res => {
-                    if (res.data.resultCode === 0) {
-                        // @ts-ignore
-                        dispatch(setUserData(null, null, null, false))
-                    }
-                }
-            )
+    return async (dispatch: Dispatch) => {
+        const res = await api.logout()
+        if (res.data.resultCode === 0) {
+            dispatch(setUserData('', '', '', false))
+        }
     }
 }
