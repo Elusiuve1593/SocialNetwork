@@ -25,19 +25,19 @@ export const api = {
         return instance.get(`profile/` + userId)
             .then(response => response.data)
     },
-    getStatus(userId: string) {
-        return instance.get(`profile/status/` + userId)
-    },
     updateStatus(status: string) {
         return instance.put(`profile/status`, {status})
     },
-    login(email: string, password: string, rememberMe: boolean = false) {
-        return instance.post(`auth/login`, {email, password, rememberMe})
+    getStatus(userId: string) {
+        return instance.get(`profile/status/` + userId)
     },
-    authStatus() {
-        return instance.get(`auth/me`)
+    me(){
+      return instance.get(`auth/me`)
+    },
+    userLogin(email: string, password: string, rememberMe: boolean = false) {
+        return instance.post(`auth/login`,{email, password, rememberMe})
     },
     logout() {
         return instance.delete(`auth/login`)
-    },
+    }
 }
