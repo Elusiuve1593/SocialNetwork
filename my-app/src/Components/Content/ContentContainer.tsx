@@ -2,6 +2,7 @@ import React, {ComponentType} from "react";
 import {Content} from "./Content";
 import {AppStateType} from "../Redax/redux-store";
 import {getUserStatusThunk, profileType, setUsersProfileThunk, updateUserStatusThunk} from "../Redax/post_reducer";
+// @ts-ignore
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {withRedirect} from "../../hoc/withRedirect";
