@@ -7,6 +7,7 @@ type ProfileInfoType = {
     profile: profileType
     status: (status: string) => void
     updateUserStatusThunk: (status: string) => void
+
 }
 
 export const ProfileInfo = memo((props: ProfileInfoType) => {
@@ -26,8 +27,9 @@ export const ProfileInfo = memo((props: ProfileInfoType) => {
             <div>
                 <img src={props.profile.photos.large}/>
                 <div><b>fullName:</b> {props.profile.fullName}</div>
-                <div><b>Status: </b> <ProfileStatus status={props.status}
-                                                    updateUserStatusThunk={props.updateUserStatusThunk}/></div>
+                <div><b>Status: </b>
+                    <ProfileStatus status={props.status} updateUserStatusThunk={props.updateUserStatusThunk}/>
+                </div>
                 <h3>Contacts:</h3>
                 <ul>
                     <li>{props.profile.contacts.facebook}</li>
