@@ -6,15 +6,21 @@ import {Navbar} from "./Components/Navbar/Navbar";
 import {DialogsContainer} from "./Components/Dialogs/DialogsContainer";
 import {UsersContainer} from "./Components/Users/UsersContainer";
 import {ContentContainer} from "./Components/Content/ContentContainer";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+// @ts-ignore
+import {Route, Switch} from "react-router-dom";
 import {HeaderContainer} from "./Components/Header/HeaderContainer";
-import {Login} from "./Components/Login/Login";
+
+// @ts-ignore
+import {BrowserRouter} from "react-router-dom";
+import React from "react";
+import Login from "./Components/Login/Login";
+
 
 function App() {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
-                <HeaderContainer />
+                <HeaderContainer/>
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
                     <Switch>
@@ -26,6 +32,7 @@ function App() {
                         {/*<Route path='/news/' render={() => <News/>}/>*/}
                         {/*<Route path='/music/' render={() => <Music/>}/>*/}
                         {/*<Route path='/settings/' render={() => <Settings/>}/>*/}
+
                     </Switch>
                 </div>
             </div>
