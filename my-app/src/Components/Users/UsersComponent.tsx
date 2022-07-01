@@ -1,6 +1,7 @@
 import React, {memo} from "react";
 import classes from "./Users.module.css";
 import {onClickHandlerType, PostsPropsType} from "./UsersContainer";
+// @ts-ignore
 import {NavLink, Redirect} from "react-router-dom";
 
 export const UsersComponent = memo((props: PostsPropsType & onClickHandlerType) => {
