@@ -142,7 +142,7 @@ export const getUsersThunk = (currentPage: number, pageSize: number) => {
 
 export const deleteUsersThunk = (id: string | number) => {
     return (dispatch: Dispatch<generalType>) => {
-       api.deleteUsers(id)
+        api.deleteUsers(id)
             .then(data => {
                 if (data.resultCode === 0) {
                     dispatch(unFollow(id))
