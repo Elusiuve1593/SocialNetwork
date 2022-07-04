@@ -1,3 +1,4 @@
+// @ts-ignore
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {FormDataType} from "./Login";
 import {memo} from "react";

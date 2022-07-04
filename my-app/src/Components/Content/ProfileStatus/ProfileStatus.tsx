@@ -5,7 +5,7 @@ type ProfileStatusType = {
     updateUserStatusThunk: (status: string) => void
 }
 
-export function ProfileStatus(props: ProfileStatusType) {
+export function ProfileStatus(props: ProfileStatusType ) {
     const [state, setState] = useState<boolean | string>(false)
     const [status, setStatus] = useState('s')
 
@@ -24,10 +24,8 @@ export function ProfileStatus(props: ProfileStatusType) {
     }
     return (
         <div>
-
-            {state ?
-                <input value={status} onChange={onChangeHandler} onBlur={onBlurHandler} autoFocus/>
-                : <span onDoubleClick={onDoubleClickHandler}> {props.status}</span>}
+            {state ? <input value={status} onChange={onChangeHandler} onBlur={onBlurHandler} autoFocus/> :
+                <span onDoubleClick={onDoubleClickHandler}> {status}</span>}
         </div>
     )
 }

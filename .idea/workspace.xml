@@ -2,54 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2547379-6777-49f3-9909-8277dd90d00b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Axios/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Axios/axios.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/ContentContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/ContentContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/My Posts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/My Posts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/My Posts/MyPostsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/My Posts/MyPostsContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/My Posts/MyPostsForm.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/Profile Info/ProfileInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/Profile Info/ProfileInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/ProfileStatus/ProfileStatus.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/ProfileStatus/ProfileStatus.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/Components/Dialogs/DialogItem/DialoItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Dialogs/DialogItem/DialoItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/Components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Header/Header.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Header/HeaderContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Login/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/Components/Login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Login/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Navbar/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Redax/auth_reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Redax/auth_reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Redax/post_reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Redax/post_reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Redax/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Redax/redux-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Redax/users_reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Redax/users_reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Users/UsersComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Users/UsersComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/hoc/withRedirect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/hoc/withRedirect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@types/history/DOMUtils.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/ExecutionEnvironment.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/LocationUtils.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/PathUtils.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/createBrowserHistory.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/createHashHistory.d.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@types/history/createMemoryHistory.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/createTransitionManager.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/history/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/prop-types/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/prop-types/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/prop-types/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/prop-types/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@types/react-router-dom/LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@types/react-router-dom/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/react-router-dom/index.d.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@types/react-router-dom/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@types/react-router/LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/@types/react-router/README.md" beforeDir="false" />
@@ -170,17 +133,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\USER\\Documents\\GitHub\\SocialNetwork\\my-app\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "js.last.introduce.type": "CONST",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "ts.external.directory.path": "C:\\Users\\USER\\Documents\\GitHub\\SocialNetwork\\my-app\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -193,7 +157,8 @@
       <workItem from="1656660601662" duration="3714000" />
       <workItem from="1656664493306" duration="4780000" />
       <workItem from="1656669948602" duration="13575000" />
-      <workItem from="1656685836323" duration="1732000" />
+      <workItem from="1656685836323" duration="1925000" />
+      <workItem from="1656919064126" duration="1388000" />
     </task>
     <servers />
   </component>
