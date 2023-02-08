@@ -5,8 +5,8 @@ import {
     addPosts,
     removePost,
     newText, messagesDataType, setAddLike, setDecreaseLike,
-} from "../../Redax/post_reducer";
-import {AppStateType} from "../../Redax/redux-store";
+} from "../../Redux/post_reducer";
+import {AppStateType} from "../../Redux/redux-store";
 import {Dispatch} from "redux";
 
 export type MapStateToPropsType = {

@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import {addUserThunk, deleteUsersThunk, getUsersThunk, setCurrentPage, userType} from "../Redax/users_reducer";
-import {AppStateType} from "../Redax/redux-store";
+import {addUserThunk, deleteUsersThunk, getUsersThunk, setCurrentPage, userType} from "../Redux/users_reducer";
+import {AppStateType} from "../Redux/redux-store";
 import React, {ComponentType} from "react";
 import {UsersComponent} from "./UsersComponent";
 import {Preloader} from "../Common/Preloader/Preloader";

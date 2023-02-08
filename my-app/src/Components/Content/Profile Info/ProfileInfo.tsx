@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {profileType} from "../../Redax/post_reducer";
+import {profileType} from "../../Redux/post_reducer";
 import {Preloader} from "../../Common/Preloader/Preloader";
 import {ProfileStatus} from "../ProfileStatus/ProfileStatus";
 

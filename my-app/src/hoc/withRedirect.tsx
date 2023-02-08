@@ -2,7 +2,7 @@ import React, {ComponentType} from "react";
 // @ts-ignore
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {AppStateType} from "../Components/Redax/redux-store";
+import {AppStateType} from "../Components/Redux/redux-store";
 
 type mapStateToPropsType = {
     authReducer: boolean

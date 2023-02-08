@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './Post.module.css';
 import {DispatchType} from "../MyPostsContainer";
-import {setDecreaseLike} from "../../../Redax/post_reducer";
+import {setDecreaseLike} from "../../../Redux/post_reducer";
 
 
 type messagePropsType = {

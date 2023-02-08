@@ -1,10 +1,10 @@
 import React from "react";
 import {LoginReduxForm} from "./LoginForm";
 import {connect} from "react-redux";
-import {login} from "../Redax/auth_reducer";
+import {login} from "../Redux/auth_reducer";
 // @ts-ignore
 import {Redirect} from "react-router-dom"
-import {AppStateType} from "../Redax/redux-store";
+import {AppStateType} from "../Redux/redux-store";
 import {mapStateToPropsType} from "../Header/HeaderContainer";
 
 export type FormDataType = {

@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b2547379-6777-49f3-9909-8277dd90d00b" name="Changes" comment="Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/Content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/Content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/ContentContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/ContentContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/My Posts/MyPostsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/My Posts/MyPostsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/My Posts/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/My Posts/Post/Post.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Content/Profile Info/ProfileInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Content/Profile Info/ProfileInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Dialogs/DialogsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Header/HeaderContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Redax/auth_reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Redux/auth_reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Redax/dialogs_reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Redux/dialogs_reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Redax/post_reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Redux/post_reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Redax/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Redux/redux-store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Redax/users_reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Redux/users_reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Components/Users/UsersContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Components/Users/UsersContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/hoc/withRedirect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/hoc/withRedirect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +40,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -27,18 +53,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\USER\\Documents\\GitHub\\SocialNetwork\\my-app\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "js.last.introduce.type": "CONST",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "C:\\Users\\USER\\Documents\\GitHub\\SocialNetwork\\my-app\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/my-app/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -55,6 +102,25 @@
       <workItem from="1656919064126" duration="7188000" />
       <workItem from="1656943407473" duration="18000" />
       <workItem from="1656943849772" duration="18000" />
+      <workItem from="1656944276930" duration="289000" />
+      <workItem from="1656944934624" duration="11000" />
+      <workItem from="1656944973460" duration="11000" />
+      <workItem from="1656945664282" duration="6000" />
+      <workItem from="1656946207690" duration="2145000" />
+      <workItem from="1658070041933" duration="56000" />
+      <workItem from="1658080416453" duration="32000" />
+      <workItem from="1658080491816" duration="8000" />
+      <workItem from="1659430219988" duration="61000" />
+      <workItem from="1659430818183" duration="347000" />
+      <workItem from="1659431183451" duration="767000" />
+      <workItem from="1659520218054" duration="93000" />
+      <workItem from="1661542400278" duration="19000" />
+      <workItem from="1667315114885" duration="192000" />
+      <workItem from="1667464749435" duration="300000" />
+      <workItem from="1667479320166" duration="43000" />
+      <workItem from="1667558693766" duration="454000" />
+      <workItem from="1667581167378" duration="889000" />
+      <workItem from="1675874935681" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1656920557862</created>
@@ -70,7 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656921734147</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Commit">
+      <created>1656944478364</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656944478364</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Commit">
+      <created>1656944562081</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656944562081</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,9 +192,69 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/my-app/src/Components/Redax/users_reducer.ts</url>
-          <line>144</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Redux/post_reducer.ts</url>
+          <line>178</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Content/ContentContainer.tsx</url>
+          <line>16</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Redux/users_reducer.ts</url>
+          <line>25</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Redux/users_reducer.ts</url>
+          <line>3</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Redux/users_reducer.ts</url>
+          <line>51</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Redux/users_reducer.ts</url>
+          <line>57</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Redux/users_reducer.ts</url>
+          <line>110</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Redux/users_reducer.ts</url>
+          <line>117</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Users/UsersContainer.tsx</url>
+          <line>32</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Users/UsersContainer.tsx</url>
+          <line>31</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Users/UsersContainer.tsx</url>
+          <line>27</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Users/UsersComponent.tsx</url>
+          <line>7</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/my-app/src/Components/Users/UsersComponent.tsx</url>
+          <line>16</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

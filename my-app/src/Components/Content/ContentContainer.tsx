@@ -1,7 +1,7 @@
 import React, {ComponentType} from "react";
 import {Content} from "./Content";
-import {AppStateType} from "../Redax/redux-store";
-import {getUserStatusThunk, profileType, setUsersProfileThunk, updateUserStatusThunk} from "../Redax/post_reducer";
+import {AppStateType} from "../Redux/redux-store";
+import {getUserStatusThunk, profileType, setUsersProfileThunk, updateUserStatusThunk} from "../Redux/post_reducer";
 // @ts-ignore
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import {compose} from "redux";

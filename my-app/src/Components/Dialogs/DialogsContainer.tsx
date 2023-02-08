@@ -7,8 +7,8 @@ import {
     removePost,
     dialogsDataType,
     messageDataType,
-} from "../Redax/dialogs_reducer";
-import {AppStateType} from "../Redax/redux-store";
+} from "../Redux/dialogs_reducer";
+import {AppStateType} from "../Redux/redux-store";
 import {withRedirect} from "../../hoc/withRedirect";
 import {compose} from "redux";
 
